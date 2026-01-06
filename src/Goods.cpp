@@ -9,12 +9,11 @@ Goods::Goods(int id, std::string name, std::string belongingArea,
 }
 
 void Goods::calculatePriority() {
-    float typeWeight = 0.2f;
-    float clientGradeWeight = 0.3f;
-    float dateWeight = 0.4f;
+    float clientGradeWeight = 0.4f;
+    float dateWeight = 0.6f;
     
     double days = Utils::daysFromToday(dateStr);
-    this->priority = type * typeWeight + clientGrade * clientGradeWeight + days * dateWeight;
+    this->priority = clientGrade * clientGradeWeight + days * dateWeight;
 }
 
 std::ostream& operator<<(std::ostream& os, const Goods& g) {
