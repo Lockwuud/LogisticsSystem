@@ -14,6 +14,8 @@ namespace Utils {
 
     // 格式化输出浮点数
     std::string formatDouble(double value);
+
+    std::vector<std::vector<int>> readMatrix(const std::string& filename, int size, const std::vector<std::string>& allRegions);
 }
 
 #endif // UTILS_H

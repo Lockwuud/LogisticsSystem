@@ -3590,3 +3590,2540 @@ events:
       Running the CXX compiler's linker: "E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.41
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.22631 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/gmake.com"
+      - "E:/Scoop/apps/gcc/current/bin/gmake.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gmake"
+      - "C:/Windows/System32/gmake.com"
+      - "C:/Windows/System32/gmake.exe"
+      - "C:/Windows/System32/gmake"
+      - "C:/Windows/gmake.com"
+      - "C:/Windows/gmake.exe"
+      - "C:/Windows/gmake"
+      - "C:/Windows/System32/wbem/gmake.com"
+      - "C:/Windows/System32/wbem/gmake.exe"
+      - "C:/Windows/System32/wbem/gmake"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gmake.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gmake.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gmake"
+      - "C:/Windows/System32/OpenSSH/gmake.com"
+      - "C:/Windows/System32/OpenSSH/gmake.exe"
+      - "C:/Windows/System32/OpenSSH/gmake"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gmake.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gmake.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gmake"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gmake.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gmake.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gmake"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gmake.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gmake.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gmake"
+      - "E:/Software/MATLAB/R2024b/bin/gmake.com"
+      - "E:/Software/MATLAB/R2024b/bin/gmake.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gmake"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gmake.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gmake.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gmake"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gmake.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gmake.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gmake"
+      - "E:/Scoop/shims/gmake.com"
+      - "E:/Scoop/shims/gmake.exe"
+      - "E:/Scoop/shims/gmake"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gmake.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gmake.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gmake"
+      - "E:/Software/Microsoft VS Code/bin/gmake.com"
+      - "E:/Software/Microsoft VS Code/bin/gmake.exe"
+      - "E:/Software/Microsoft VS Code/bin/gmake"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gmake.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gmake.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gmake"
+      - "E:/Scoop/apps/gcc/current/bin/make.com"
+      - "E:/Scoop/apps/gcc/current/bin/make.exe"
+      - "E:/Scoop/apps/gcc/current/bin/make"
+      - "C:/Windows/System32/make.com"
+      - "C:/Windows/System32/make.exe"
+      - "C:/Windows/System32/make"
+      - "C:/Windows/make.com"
+      - "C:/Windows/make.exe"
+      - "C:/Windows/make"
+      - "C:/Windows/System32/wbem/make.com"
+      - "C:/Windows/System32/wbem/make.exe"
+      - "C:/Windows/System32/wbem/make"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/make.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/make.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/make"
+      - "C:/Windows/System32/OpenSSH/make.com"
+      - "C:/Windows/System32/OpenSSH/make.exe"
+      - "C:/Windows/System32/OpenSSH/make"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/make.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/make.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/make"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/make.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/make.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/make"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/make.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/make.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/make"
+      - "E:/Software/MATLAB/R2024b/bin/make.com"
+      - "E:/Software/MATLAB/R2024b/bin/make.exe"
+      - "E:/Software/MATLAB/R2024b/bin/make"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/make.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/make.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/make"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/make.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/make.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/make"
+      - "E:/Scoop/shims/make.com"
+    found: "E:/Scoop/shims/make.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/"
+    found: "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: E:/Scoop/apps/gcc/current/bin/gcc.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+      
+      The C compiler identification is GNU, found in:
+        E:/code/LogisticsSystem/build/CMakeFiles/4.1.1/CompilerIdC/a.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/ar.com"
+    found: "E:/Scoop/apps/gcc/current/bin/ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ranlib"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/ranlib.com"
+    found: "E:/Scoop/apps/gcc/current/bin/ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/strip.com"
+    found: "E:/Scoop/apps/gcc/current/bin/strip.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/ld.com"
+    found: "E:/Scoop/apps/gcc/current/bin/ld.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nm"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/nm.com"
+    found: "E:/Scoop/apps/gcc/current/bin/nm.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objdump"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/objdump.com"
+    found: "E:/Scoop/apps/gcc/current/bin/objdump.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "objcopy"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/objcopy.com"
+    found: "E:/Scoop/apps/gcc/current/bin/objcopy.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "readelf"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/readelf.com"
+    found: "E:/Scoop/apps/gcc/current/bin/readelf.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "dlltool"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/dlltool.com"
+    found: "E:/Scoop/apps/gcc/current/bin/dlltool.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "addr2line"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/addr2line.com"
+    found: "E:/Scoop/apps/gcc/current/bin/addr2line.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/tapi.com"
+      - "E:/Scoop/apps/gcc/current/bin/tapi.exe"
+      - "E:/Scoop/apps/gcc/current/bin/tapi"
+      - "C:/Windows/System32/tapi.com"
+      - "C:/Windows/System32/tapi.exe"
+      - "C:/Windows/System32/tapi"
+      - "C:/Windows/tapi.com"
+      - "C:/Windows/tapi.exe"
+      - "C:/Windows/tapi"
+      - "C:/Windows/System32/wbem/tapi.com"
+      - "C:/Windows/System32/wbem/tapi.exe"
+      - "C:/Windows/System32/wbem/tapi"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/tapi"
+      - "C:/Windows/System32/OpenSSH/tapi.com"
+      - "C:/Windows/System32/OpenSSH/tapi.exe"
+      - "C:/Windows/System32/OpenSSH/tapi"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/tapi.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/tapi.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/tapi"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/tapi.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/tapi.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/tapi"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/tapi.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/tapi.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/tapi"
+      - "E:/Software/MATLAB/R2024b/bin/tapi.com"
+      - "E:/Software/MATLAB/R2024b/bin/tapi.exe"
+      - "E:/Software/MATLAB/R2024b/bin/tapi"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/tapi.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/tapi.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/tapi"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/tapi.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/tapi.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/tapi"
+      - "E:/Scoop/shims/tapi.com"
+      - "E:/Scoop/shims/tapi.exe"
+      - "E:/Scoop/shims/tapi"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/tapi.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/tapi.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/tapi"
+      - "E:/Software/Microsoft VS Code/bin/tapi.com"
+      - "E:/Software/Microsoft VS Code/bin/tapi.exe"
+      - "E:/Software/Microsoft VS Code/bin/tapi"
+      - "E:/Software/mysql-5.7.28-winx64/bin/tapi.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/tapi.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-13.2"
+      - "gcc-ar-13"
+      - "gcc-ar13"
+      - "gcc-ar"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.2.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.2.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.2"
+      - "C:/Windows/System32/gcc-ar-13.2.com"
+      - "C:/Windows/System32/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/gcc-ar-13.2"
+      - "C:/Windows/gcc-ar-13.2.com"
+      - "C:/Windows/gcc-ar-13.2.exe"
+      - "C:/Windows/gcc-ar-13.2"
+      - "C:/Windows/System32/wbem/gcc-ar-13.2.com"
+      - "C:/Windows/System32/wbem/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-13.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.2"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.2.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.2.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.2"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.2.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.2"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.2.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.2"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.2.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.2.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.2"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.2.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.2.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.2"
+      - "E:/Scoop/shims/gcc-ar-13.2.com"
+      - "E:/Scoop/shims/gcc-ar-13.2.exe"
+      - "E:/Scoop/shims/gcc-ar-13.2"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.2.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.2.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.2"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.2.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.2.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.2"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.2.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.2.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.2"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13"
+      - "C:/Windows/System32/gcc-ar-13.com"
+      - "C:/Windows/System32/gcc-ar-13.exe"
+      - "C:/Windows/System32/gcc-ar-13"
+      - "C:/Windows/gcc-ar-13.com"
+      - "C:/Windows/gcc-ar-13.exe"
+      - "C:/Windows/gcc-ar-13"
+      - "C:/Windows/System32/wbem/gcc-ar-13.com"
+      - "C:/Windows/System32/wbem/gcc-ar-13.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13"
+      - "E:/Scoop/shims/gcc-ar-13.com"
+      - "E:/Scoop/shims/gcc-ar-13.exe"
+      - "E:/Scoop/shims/gcc-ar-13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar13"
+      - "C:/Windows/System32/gcc-ar13.com"
+      - "C:/Windows/System32/gcc-ar13.exe"
+      - "C:/Windows/System32/gcc-ar13"
+      - "C:/Windows/gcc-ar13.com"
+      - "C:/Windows/gcc-ar13.exe"
+      - "C:/Windows/gcc-ar13"
+      - "C:/Windows/System32/wbem/gcc-ar13.com"
+      - "C:/Windows/System32/wbem/gcc-ar13.exe"
+      - "C:/Windows/System32/wbem/gcc-ar13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar13"
+      - "C:/Windows/System32/OpenSSH/gcc-ar13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar13"
+      - "E:/Scoop/shims/gcc-ar13.com"
+      - "E:/Scoop/shims/gcc-ar13.exe"
+      - "E:/Scoop/shims/gcc-ar13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar.com"
+    found: "E:/Scoop/apps/gcc/current/bin/gcc-ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-13.2"
+      - "gcc-ranlib-13"
+      - "gcc-ranlib13"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.2.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.2"
+      - "C:/Windows/System32/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/gcc-ranlib-13.2"
+      - "C:/Windows/gcc-ranlib-13.2.com"
+      - "C:/Windows/gcc-ranlib-13.2.exe"
+      - "C:/Windows/gcc-ranlib-13.2"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.2"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.2.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.2.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.2"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.2.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.2"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.2.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.2"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.2.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.2"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.2.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.2"
+      - "E:/Scoop/shims/gcc-ranlib-13.2.com"
+      - "E:/Scoop/shims/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/shims/gcc-ranlib-13.2"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.2.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.2.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.2"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.2.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.2.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.2"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.2.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.2.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.2"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13"
+      - "C:/Windows/System32/gcc-ranlib-13.com"
+      - "C:/Windows/System32/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/gcc-ranlib-13"
+      - "C:/Windows/gcc-ranlib-13.com"
+      - "C:/Windows/gcc-ranlib-13.exe"
+      - "C:/Windows/gcc-ranlib-13"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13"
+      - "E:/Scoop/shims/gcc-ranlib-13.com"
+      - "E:/Scoop/shims/gcc-ranlib-13.exe"
+      - "E:/Scoop/shims/gcc-ranlib-13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib13"
+      - "C:/Windows/System32/gcc-ranlib13.com"
+      - "C:/Windows/System32/gcc-ranlib13.exe"
+      - "C:/Windows/System32/gcc-ranlib13"
+      - "C:/Windows/gcc-ranlib13.com"
+      - "C:/Windows/gcc-ranlib13.exe"
+      - "C:/Windows/gcc-ranlib13"
+      - "C:/Windows/System32/wbem/gcc-ranlib13.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib13.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib13"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib13"
+      - "E:/Scoop/shims/gcc-ranlib13.com"
+      - "E:/Scoop/shims/gcc-ranlib13.exe"
+      - "E:/Scoop/shims/gcc-ranlib13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib.com"
+    found: "E:/Scoop/apps/gcc/current/bin/gcc-ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/"
+    found: "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: E:/Scoop/apps/gcc/current/bin/g++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+      
+      The CXX compiler identification is GNU, found in:
+        E:/code/LogisticsSystem/build/CMakeFiles/4.1.1/CompilerIdCXX/a.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ar-13.2"
+      - "gcc-ar-13"
+      - "gcc-ar13"
+      - "gcc-ar"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.2.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.2.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.2"
+      - "C:/Windows/System32/gcc-ar-13.2.com"
+      - "C:/Windows/System32/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/gcc-ar-13.2"
+      - "C:/Windows/gcc-ar-13.2.com"
+      - "C:/Windows/gcc-ar-13.2.exe"
+      - "C:/Windows/gcc-ar-13.2"
+      - "C:/Windows/System32/wbem/gcc-ar-13.2.com"
+      - "C:/Windows/System32/wbem/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-13.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.2"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.2.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.2.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.2"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.2.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.2"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.2.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.2"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.2.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.2.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.2"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.2.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.2.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.2"
+      - "E:/Scoop/shims/gcc-ar-13.2.com"
+      - "E:/Scoop/shims/gcc-ar-13.2.exe"
+      - "E:/Scoop/shims/gcc-ar-13.2"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.2.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.2.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.2"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.2.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.2.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.2"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.2.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.2.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.2"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar-13"
+      - "C:/Windows/System32/gcc-ar-13.com"
+      - "C:/Windows/System32/gcc-ar-13.exe"
+      - "C:/Windows/System32/gcc-ar-13"
+      - "C:/Windows/gcc-ar-13.com"
+      - "C:/Windows/gcc-ar-13.exe"
+      - "C:/Windows/gcc-ar-13"
+      - "C:/Windows/System32/wbem/gcc-ar-13.com"
+      - "C:/Windows/System32/wbem/gcc-ar-13.exe"
+      - "C:/Windows/System32/wbem/gcc-ar-13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-13"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar-13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar-13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar-13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar-13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar-13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar-13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar-13"
+      - "E:/Scoop/shims/gcc-ar-13.com"
+      - "E:/Scoop/shims/gcc-ar-13.exe"
+      - "E:/Scoop/shims/gcc-ar-13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar-13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar-13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar-13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar13"
+      - "C:/Windows/System32/gcc-ar13.com"
+      - "C:/Windows/System32/gcc-ar13.exe"
+      - "C:/Windows/System32/gcc-ar13"
+      - "C:/Windows/gcc-ar13.com"
+      - "C:/Windows/gcc-ar13.exe"
+      - "C:/Windows/gcc-ar13"
+      - "C:/Windows/System32/wbem/gcc-ar13.com"
+      - "C:/Windows/System32/wbem/gcc-ar13.exe"
+      - "C:/Windows/System32/wbem/gcc-ar13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ar13"
+      - "C:/Windows/System32/OpenSSH/gcc-ar13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ar13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ar13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ar13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ar13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ar13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ar13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ar13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ar13"
+      - "E:/Scoop/shims/gcc-ar13.com"
+      - "E:/Scoop/shims/gcc-ar13.exe"
+      - "E:/Scoop/shims/gcc-ar13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ar13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ar13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ar13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ar.com"
+    found: "E:/Scoop/apps/gcc/current/bin/gcc-ar.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gcc-ranlib-13.2"
+      - "gcc-ranlib-13"
+      - "gcc-ranlib13"
+      - "gcc-ranlib"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.2.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.2"
+      - "C:/Windows/System32/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/gcc-ranlib-13.2"
+      - "C:/Windows/gcc-ranlib-13.2.com"
+      - "C:/Windows/gcc-ranlib-13.2.exe"
+      - "C:/Windows/gcc-ranlib-13.2"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.2"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.2"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.2.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.2.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.2"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.2.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.2.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.2"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.2.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.2.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.2"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.2.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.2"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.2.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.2.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.2"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.2.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.2"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.2.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.2"
+      - "E:/Scoop/shims/gcc-ranlib-13.2.com"
+      - "E:/Scoop/shims/gcc-ranlib-13.2.exe"
+      - "E:/Scoop/shims/gcc-ranlib-13.2"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.2.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.2.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.2"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.2.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.2.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.2"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.2.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.2.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.2"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib-13"
+      - "C:/Windows/System32/gcc-ranlib-13.com"
+      - "C:/Windows/System32/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/gcc-ranlib-13"
+      - "C:/Windows/gcc-ranlib-13.com"
+      - "C:/Windows/gcc-ranlib-13.exe"
+      - "C:/Windows/gcc-ranlib-13"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib-13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-13"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib-13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib-13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib-13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib-13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib-13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib-13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib-13"
+      - "E:/Scoop/shims/gcc-ranlib-13.com"
+      - "E:/Scoop/shims/gcc-ranlib-13.exe"
+      - "E:/Scoop/shims/gcc-ranlib-13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib-13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib-13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib13.com"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib13.exe"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib13"
+      - "C:/Windows/System32/gcc-ranlib13.com"
+      - "C:/Windows/System32/gcc-ranlib13.exe"
+      - "C:/Windows/System32/gcc-ranlib13"
+      - "C:/Windows/gcc-ranlib13.com"
+      - "C:/Windows/gcc-ranlib13.exe"
+      - "C:/Windows/gcc-ranlib13"
+      - "C:/Windows/System32/wbem/gcc-ranlib13.com"
+      - "C:/Windows/System32/wbem/gcc-ranlib13.exe"
+      - "C:/Windows/System32/wbem/gcc-ranlib13"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib13.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib13.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib13"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib13.com"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib13.exe"
+      - "C:/Windows/System32/OpenSSH/gcc-ranlib13"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib13.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib13.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/gcc-ranlib13"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib13.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib13.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/gcc-ranlib13"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib13.com"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib13.exe"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/gcc-ranlib13"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib13.com"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib13.exe"
+      - "E:/Software/MATLAB/R2024b/bin/gcc-ranlib13"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib13.com"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib13.exe"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/gcc-ranlib13"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib13.com"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib13.exe"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/gcc-ranlib13"
+      - "E:/Scoop/shims/gcc-ranlib13.com"
+      - "E:/Scoop/shims/gcc-ranlib13.exe"
+      - "E:/Scoop/shims/gcc-ranlib13"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib13.com"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib13.exe"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/gcc-ranlib13"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib13.com"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib13.exe"
+      - "E:/Software/Microsoft VS Code/bin/gcc-ranlib13"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib13.com"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib13.exe"
+      - "E:/Software/mysql-5.7.28-winx64/bin/gcc-ranlib13"
+      - "E:/Scoop/apps/gcc/current/bin/gcc-ranlib.com"
+    found: "E:/Scoop/apps/gcc/current/bin/gcc-ranlib.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake:167 (enable_language)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake:2 (__windows_compiler_gnu)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCInformation.cmake:48 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "windres"
+      - "windres"
+    candidate_directories:
+      - "E:/Scoop/apps/gcc/current/bin/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR/"
+      - "E:/Software/MATLAB/R2024b/runtime/win64/"
+      - "E:/Software/MATLAB/R2024b/bin/"
+      - "E:/Scoop/apps/openjdk8-redhat/current/bin/"
+      - "E:/Scoop/apps/anaconda3/current/App/Scripts/"
+      - "E:/Scoop/shims/"
+      - "C:/Users/27364/AppData/Local/Microsoft/WindowsApps/"
+      - "E:/Software/Microsoft VS Code/bin/"
+      - "E:/Software/mysql-5.7.28-winx64/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "E:/Scoop/apps/cmake/current/bin/"
+      - "E:/Scoop/apps/cmake/current/sbin/"
+      - "E:/Scoop/apps/cmake/current/"
+      - "C:/Program Files (x86)/LogisticsSystem/bin/"
+      - "C:/Program Files (x86)/LogisticsSystem/sbin/"
+      - "C:/Program Files (x86)/LogisticsSystem/"
+    searched_directories:
+      - "E:/Scoop/apps/gcc/current/bin/windres.com"
+    found: "E:/Scoop/apps/gcc/current/bin/windres.exe"
+    search_context:
+      ENV{PATH}:
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR"
+        - "C:\\Windows\\system32"
+        - "C:\\Windows"
+        - "C:\\Windows\\System32\\Wbem"
+        - "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\Windows\\System32\\OpenSSH\\"
+        - "E:\\Software\\MATLAB\\R2024b\\runtime\\win64"
+        - "E:\\Software\\MATLAB\\R2024b\\bin"
+        - "E:\\Scoop\\apps\\openjdk8-redhat\\current\\bin"
+        - "E:\\Scoop\\apps\\anaconda3\\current\\App\\Scripts"
+        - "E:\\Scoop\\apps\\gcc\\current\\bin"
+        - "E:\\Scoop\\shims"
+        - "C:\\Users\\27364\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "E:\\Software\\Microsoft VS Code\\bin"
+        - "E:\\Software\\mysql-5.7.28-winx64\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/LogisticsSystem"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "E:/Scoop/apps/cmake/current"
+        - "C:/Program Files (x86)/LogisticsSystem"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-dziz3y"
+      binary: "E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-dziz3y"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-dziz3y'
+        
+        Run Build Command(s): E:/Scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 E:/Scoop/shims/make.exe -f Makefile cmTC_72369/fast
+        E:/Scoop/apps/make/current/bin/make.exe  -f CMakeFiles/cmTC_72369.dir/build.make CMakeFiles/cmTC_72369.dir/build
+        make[1]: Entering directory 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-dziz3y'
+        Building C object CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj
+        E:/Scoop/apps/gcc/current/bin/gcc.exe   -v -o CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj -c E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/gcc.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../src/configure --enable-languages=c,c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 13.2.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_72369.dir/'
+         E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/cc1.exe -quiet -v -iprefix E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/ -D_REENTRANT E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_72369.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\27364\\AppData\\Local\\Temp\\ccAxn8Ug.s
+        GNU C17 (GCC) version 13.2.0 (x86_64-w64-mingw32)
+        	compiled by GNU C version 13.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include"
+        ignoring nonexistent directory "/e/temp/gcc/dest/e/temp/gcc/dest/lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include"
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed"
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "/e/temp/gcc/dest/mingw/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         E:\\Scoop\\apps\\gcc\\current\\include
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include
+        End of search list.
+        Compiler executable checksum: 57be99a5b99999b94eef0e4814eb03c2
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_72369.dir/'
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj C:\\Users\\27364\\AppData\\Local\\Temp\\ccAxn8Ug.s
+        GNU assembler version 2.41 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.41
+        COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_72369.exe
+        E:/Scoop/apps/cmake/current/bin/cmake.exe -E rm -f CMakeFiles/cmTC_72369.dir/objects.a
+        E:/Scoop/apps/gcc/current/bin/ar.exe qc CMakeFiles/cmTC_72369.dir/objects.a @CMakeFiles/cmTC_72369.dir/objects1.rsp
+        E:/Scoop/apps/gcc/current/bin/gcc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles/cmTC_72369.dir/objects.a -Wl,--no-whole-archive -o cmTC_72369.exe -Wl,--out-implib,libcmTC_72369.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        Using built-in specs.
+        COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/gcc.exe
+        COLLECT_LTO_WRAPPER=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../src/configure --enable-languages=c,c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 13.2.0 (GCC) 
+        COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_72369.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_72369.'
+         E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/collect2.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccJzgrVj.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_72369.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_72369.dir/objects.a --no-whole-archive --out-implib libcmTC_72369.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o
+        collect2 version 13.2.0
+        E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccJzgrVj.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_72369.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_72369.dir/objects.a --no-whole-archive --out-implib libcmTC_72369.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o
+        GNU ld (GNU Binutils) 2.41
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_72369.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_72369.'
+        make[1]: Leaving directory 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-dziz3y'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [E:/Scoop/apps/gcc/current/include]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include]
+        end of search list found
+        collapse include dir [E:/Scoop/apps/gcc/current/include] ==> [E:/Scoop/apps/gcc/current/include]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include]
+        implicit include dirs: [E:/Scoop/apps/gcc/current/include;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed;E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-dziz3y']
+        ignore line: []
+        ignore line: [Run Build Command(s): E:/Scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 E:/Scoop/shims/make.exe -f Makefile cmTC_72369/fast]
+        ignore line: [E:/Scoop/apps/make/current/bin/make.exe  -f CMakeFiles/cmTC_72369.dir/build.make CMakeFiles/cmTC_72369.dir/build]
+        ignore line: [make[1]: Entering directory 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-dziz3y']
+        ignore line: [Building C object CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [E:/Scoop/apps/gcc/current/bin/gcc.exe   -v -o CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj -c E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/gcc.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../src/configure --enable-languages=c c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 13.2.0 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_72369.dir/']
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/cc1.exe -quiet -v -iprefix E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/ -D_REENTRANT E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_72369.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\27364\\AppData\\Local\\Temp\\ccAxn8Ug.s]
+        ignore line: [GNU C17 (GCC) version 13.2.0 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 13.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include"]
+        ignore line: [ignoring nonexistent directory "/e/temp/gcc/dest/e/temp/gcc/dest/lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include"]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed"]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "/e/temp/gcc/dest/mingw/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ E:\\Scoop\\apps\\gcc\\current\\include]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 57be99a5b99999b94eef0e4814eb03c2]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_72369.dir/']
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj C:\\Users\\27364\\AppData\\Local\\Temp\\ccAxn8Ug.s]
+        ignore line: [GNU assembler version 2.41 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.41]
+        ignore line: [COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_72369.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_72369.exe]
+        ignore line: [E:/Scoop/apps/cmake/current/bin/cmake.exe -E rm -f CMakeFiles/cmTC_72369.dir/objects.a]
+        ignore line: [E:/Scoop/apps/gcc/current/bin/ar.exe qc CMakeFiles/cmTC_72369.dir/objects.a @CMakeFiles/cmTC_72369.dir/objects1.rsp]
+        ignore line: [E:/Scoop/apps/gcc/current/bin/gcc.exe  -v -Wl -v -Wl --whole-archive CMakeFiles/cmTC_72369.dir/objects.a -Wl --no-whole-archive -o cmTC_72369.exe -Wl --out-implib libcmTC_72369.dll.a -Wl --major-image-version 0 --minor-image-version 0]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/gcc.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../src/configure --enable-languages=c c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 13.2.0 (GCC) ]
+        ignore line: [COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_72369.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_72369.']
+        link line: [ E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/collect2.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccJzgrVj.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_72369.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_72369.dir/objects.a --no-whole-archive --out-implib libcmTC_72369.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/collect2.exe] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll] ==> ignore
+          arg [-plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccJzgrVj.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+          arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [--sysroot=/e/temp/gcc/dest] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_72369.exe] ==> ignore
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o] ==> obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../..] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../..]
+          arg [-v] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles/cmTC_72369.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_72369.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o] ==> obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        ignore line: [collect2 version 13.2.0]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccJzgrVj.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_72369.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_72369.dir/objects.a --no-whole-archive --out-implib libcmTC_72369.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        linker tool for 'C': E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/bin/ld.exe
+        remove lib [msvcrt]
+        remove lib [msvcrt]
+        collapse obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib/crt2.o]
+        collapse obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o]
+        collapse obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib] ==> [E:/Scoop/apps/gcc/13.2.0/lib]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../..] ==> [E:/Scoop/apps/gcc/13.2.0/lib]
+        implicit libs: [mingw32;gcc;moldname;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;moldname;mingwex;kernel32]
+        implicit objs: [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib/crt2.o;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        implicit dirs: [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0;E:/Scoop/apps/gcc/13.2.0/lib/gcc;E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib;E:/Scoop/apps/gcc/13.2.0/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/bin/ld.exe" "-v"
+      GNU ld (GNU Binutils) 2.41
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-491lbe"
+      binary: "E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-491lbe"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-491lbe'
+        
+        Run Build Command(s): E:/Scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 E:/Scoop/shims/make.exe -f Makefile cmTC_26745/fast
+        E:/Scoop/apps/make/current/bin/make.exe  -f CMakeFiles/cmTC_26745.dir/build.make CMakeFiles/cmTC_26745.dir/build
+        make[1]: Entering directory 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-491lbe'
+        Building CXX object CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj
+        E:/Scoop/apps/gcc/current/bin/g++.exe   -v -o CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj -c E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/g++.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../src/configure --enable-languages=c,c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 13.2.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_26745.dir/'
+         E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/cc1plus.exe -quiet -v -iprefix E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/ -D_REENTRANT E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_26745.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\27364\\AppData\\Local\\Temp\\ccBzFhb0.s
+        GNU C++17 (GCC) version 13.2.0 (x86_64-w64-mingw32)
+        	compiled by GNU C version 13.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0"
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/x86_64-w64-mingw32"
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/backward"
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include"
+        ignoring nonexistent directory "/e/temp/gcc/dest/e/temp/gcc/dest/lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include"
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed"
+        ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "/e/temp/gcc/dest/mingw/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         E:\\Scoop\\apps\\gcc\\current\\include
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/x86_64-w64-mingw32
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/backward
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include
+        End of search list.
+        Compiler executable checksum: aa8d155dea9d0b877613f1961dc4601a
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_26745.dir/'
+         E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\27364\\AppData\\Local\\Temp\\ccBzFhb0.s
+        GNU assembler version 2.41 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.41
+        COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_26745.exe
+        E:/Scoop/apps/cmake/current/bin/cmake.exe -E rm -f CMakeFiles/cmTC_26745.dir/objects.a
+        E:/Scoop/apps/gcc/current/bin/ar.exe qc CMakeFiles/cmTC_26745.dir/objects.a @CMakeFiles/cmTC_26745.dir/objects1.rsp
+        E:/Scoop/apps/gcc/current/bin/g++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles/cmTC_26745.dir/objects.a -Wl,--no-whole-archive -o cmTC_26745.exe -Wl,--out-implib,libcmTC_26745.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        Using built-in specs.
+        COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/g++.exe
+        COLLECT_LTO_WRAPPER=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe
+        Target: x86_64-w64-mingw32
+        Configured with: ../src/configure --enable-languages=c,c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 13.2.0 (GCC) 
+        COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/
+        LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/;E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_26745.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_26745.'
+         E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/collect2.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccn6vZRb.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_26745.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_26745.dir/objects.a --no-whole-archive --out-implib libcmTC_26745.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o
+        collect2 version 13.2.0
+        E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccn6vZRb.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_26745.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_26745.dir/objects.a --no-whole-archive --out-implib libcmTC_26745.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o
+        GNU ld (GNU Binutils) 2.41
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_26745.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_26745.'
+        make[1]: Leaving directory 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-491lbe'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [E:/Scoop/apps/gcc/current/include]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/x86_64-w64-mingw32]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/backward]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed]
+          add: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include]
+        end of search list found
+        collapse include dir [E:/Scoop/apps/gcc/current/include] ==> [E:/Scoop/apps/gcc/current/include]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0] ==> [E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/x86_64-w64-mingw32] ==> [E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/x86_64-w64-mingw32]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/backward] ==> [E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/backward]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed]
+        collapse include dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include]
+        implicit include dirs: [E:/Scoop/apps/gcc/current/include;E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0;E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/x86_64-w64-mingw32;E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/backward;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed;E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-491lbe']
+        ignore line: []
+        ignore line: [Run Build Command(s): E:/Scoop/apps/cmake/current/bin/cmake.exe -E env VERBOSE=1 E:/Scoop/shims/make.exe -f Makefile cmTC_26745/fast]
+        ignore line: [E:/Scoop/apps/make/current/bin/make.exe  -f CMakeFiles/cmTC_26745.dir/build.make CMakeFiles/cmTC_26745.dir/build]
+        ignore line: [make[1]: Entering directory 'E:/code/LogisticsSystem/build/CMakeFiles/CMakeScratch/TryCompile-491lbe']
+        ignore line: [Building CXX object CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [E:/Scoop/apps/gcc/current/bin/g++.exe   -v -o CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj -c E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/g++.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../src/configure --enable-languages=c c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 13.2.0 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_26745.dir/']
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/cc1plus.exe -quiet -v -iprefix E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/ -D_REENTRANT E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_26745.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\27364\\AppData\\Local\\Temp\\ccBzFhb0.s]
+        ignore line: [GNU C++17 (GCC) version 13.2.0 (x86_64-w64-mingw32)]
+        ignore line: [	compiled by GNU C version 13.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0"]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/x86_64-w64-mingw32"]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/backward"]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include"]
+        ignore line: [ignoring nonexistent directory "/e/temp/gcc/dest/e/temp/gcc/dest/lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include"]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed"]
+        ignore line: [ignoring duplicate directory "E:/Scoop/apps/gcc/13.2.0/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "/e/temp/gcc/dest/mingw/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ E:\\Scoop\\apps\\gcc\\current\\include]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/x86_64-w64-mingw32]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../include/c++/13.2.0/backward]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/include-fixed]
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: aa8d155dea9d0b877613f1961dc4601a]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_26745.dir/']
+        ignore line: [ E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\27364\\AppData\\Local\\Temp\\ccBzFhb0.s]
+        ignore line: [GNU assembler version 2.41 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.41]
+        ignore line: [COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_26745.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_26745.exe]
+        ignore line: [E:/Scoop/apps/cmake/current/bin/cmake.exe -E rm -f CMakeFiles/cmTC_26745.dir/objects.a]
+        ignore line: [E:/Scoop/apps/gcc/current/bin/ar.exe qc CMakeFiles/cmTC_26745.dir/objects.a @CMakeFiles/cmTC_26745.dir/objects1.rsp]
+        ignore line: [E:/Scoop/apps/gcc/current/bin/g++.exe  -v -Wl -v -Wl --whole-archive CMakeFiles/cmTC_26745.dir/objects.a -Wl --no-whole-archive -o cmTC_26745.exe -Wl --out-implib libcmTC_26745.dll.a -Wl --major-image-version 0 --minor-image-version 0]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=E:/Scoop/apps/gcc/current/bin/g++.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe]
+        ignore line: [Target: x86_64-w64-mingw32]
+        ignore line: [Configured with: ../src/configure --enable-languages=c c++ --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --disable-multilib --prefix=/e/temp/gcc/dest --with-sysroot=/e/temp/gcc/dest --disable-libstdcxx-pch --disable-libstdcxx-verbose --disable-nls --disable-shared --disable-win32-registry --enable-threads=posix --enable-libgomp --with-zstd=/c/mingw]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 13.2.0 (GCC) ]
+        ignore line: [COMPILER_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/]
+        ignore line: [LIBRARY_PATH=E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_26745.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_26745.']
+        link line: [ E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/collect2.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccn6vZRb.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_26745.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_26745.dir/objects.a --no-whole-archive --out-implib libcmTC_26745.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/collect2.exe] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll] ==> ignore
+          arg [-plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccn6vZRb.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+          arg [-plugin-opt=-pass-through=-ladvapi32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lshell32] ==> ignore
+          arg [-plugin-opt=-pass-through=-luser32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingw32] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmoldname] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmingwex] ==> ignore
+          arg [-plugin-opt=-pass-through=-lmsvcrt] ==> ignore
+          arg [-plugin-opt=-pass-through=-lkernel32] ==> ignore
+          arg [--sysroot=/e/temp/gcc/dest] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_26745.exe] ==> ignore
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o] ==> obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib]
+          arg [-LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../..] ==> dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../..]
+          arg [-v] ==> ignore
+          arg [--whole-archive] ==> ignore
+          arg [CMakeFiles/cmTC_26745.dir/objects.a] ==> ignore
+          arg [--no-whole-archive] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_26745.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lpthread] ==> lib [pthread]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o] ==> obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        ignore line: [collect2 version 13.2.0]
+        ignore line: [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe -plugin E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/liblto_plugin.dll -plugin-opt=E:/Scoop/apps/gcc/13.2.0/bin/../libexec/gcc/x86_64-w64-mingw32/13.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\27364\\AppData\\Local\\Temp\\ccn6vZRb.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 --sysroot=/e/temp/gcc/dest -m i386pep -Bdynamic -o cmTC_26745.exe E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0 -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib -LE:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../.. -v --whole-archive CMakeFiles/cmTC_26745.dir/objects.a --no-whole-archive --out-implib libcmTC_26745.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        linker tool for 'CXX': E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/bin/ld.exe
+        remove lib [msvcrt]
+        remove lib [msvcrt]
+        collapse obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib/crt2.o]
+        collapse obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o]
+        collapse obj [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc] ==> [E:/Scoop/apps/gcc/13.2.0/lib/gcc]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib/../lib] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../lib] ==> [E:/Scoop/apps/gcc/13.2.0/lib]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../../../x86_64-w64-mingw32/lib] ==> [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib]
+        collapse library dir [E:/Scoop/apps/gcc/13.2.0/bin/../lib/gcc/x86_64-w64-mingw32/13.2.0/../../..] ==> [E:/Scoop/apps/gcc/13.2.0/lib]
+        implicit libs: [stdc++;mingw32;gcc;moldname;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;moldname;mingwex;kernel32]
+        implicit objs: [E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib/crt2.o;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtbegin.o;E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/crtend.o]
+        implicit dirs: [E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0;E:/Scoop/apps/gcc/13.2.0/lib/gcc;E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/lib;E:/Scoop/apps/gcc/13.2.0/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "E:/Scoop/apps/cmake/current/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/bin/ld.exe" "-v"
+      GNU ld (GNU Binutils) 2.41
+...

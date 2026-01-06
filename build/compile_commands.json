@@ -1,0 +1,32 @@
+[
+{
+  "directory": "E:/code/LogisticsSystem/build",
+  "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj -c E:/code/LogisticsSystem/src/Dijkstra.cpp",
+  "file": "E:/code/LogisticsSystem/src/Dijkstra.cpp",
+  "output": "CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj"
+},
+{
+  "directory": "E:/code/LogisticsSystem/build",
+  "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj -c E:/code/LogisticsSystem/src/Goods.cpp",
+  "file": "E:/code/LogisticsSystem/src/Goods.cpp",
+  "output": "CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj"
+},
+{
+  "directory": "E:/code/LogisticsSystem/build",
+  "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj -c E:/code/LogisticsSystem/src/Main.cpp",
+  "file": "E:/code/LogisticsSystem/src/Main.cpp",
+  "output": "CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj"
+},
+{
+  "directory": "E:/code/LogisticsSystem/build",
+  "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj -c E:/code/LogisticsSystem/src/Utils.cpp",
+  "file": "E:/code/LogisticsSystem/src/Utils.cpp",
+  "output": "CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj"
+},
+{
+  "directory": "E:/code/LogisticsSystem/build",
+  "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj -c E:/code/LogisticsSystem/src/WebGui.cpp",
+  "file": "E:/code/LogisticsSystem/src/WebGui.cpp",
+  "output": "CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj"
+}
+]

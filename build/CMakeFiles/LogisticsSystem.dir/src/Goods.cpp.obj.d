@@ -1,5 +1,5 @@
 CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj: \
- E:\code\LogisticsSystem\src\Goods.cpp \
+ E:/code/LogisticsSystem/src/Goods.cpp \
  E:/code/LogisticsSystem/include/Goods.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/string \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/requires_hosted.h \

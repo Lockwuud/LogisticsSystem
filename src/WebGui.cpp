@@ -1,46 +1,34 @@
 #include "WebGui.h"
 #include "GlobalData.h"
 #include "Utils.h"
+#include "Dijkstra.h"
 #include <iostream>
+#include <fstream>
 #include <sstream>
+#include <algorithm>
 #include <winsock2.h>
-#include <ws2tcpip.h> // for socklen_t
+#include <ws2tcpip.h>
 
-// 链接 ws2_32.lib 是在 CMakeLists.txt 中完成的
+// 如果你不想创建 index.html 文件，可以将上面的 HTML 代码粘贴在这个字符串里
+const std::string FALLBACK_HTML = R"(
+<!DOCTYPE html><html><body><h1>请在同级目录下创建 index.html 文件以加载完整界面。</h1></body></html>
+)";
 
 void WebGui::start() {
     WSADATA wsaData;
-    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
-        std::cerr << "WSAStartup failed." << std::endl;
-        return;
-    }
+    WSAStartup(MAKEWORD(2, 2), &wsaData);
 
     SOCKET serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-    if (serverSocket == INVALID_SOCKET) {
-        std::cerr << "无法创建 Socket." << std::endl;
-        return;
-    }
-
     sockaddr_in serverAddr;
     serverAddr.sin_family = AF_INET;
     serverAddr.sin_addr.s_addr = INADDR_ANY;
-    serverAddr.sin_port = htons(8080); // 端口设置为 8080
+    serverAddr.sin_port = htons(8080);
 
-    if (bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
-        std::cerr << "端口绑定失败，请确保8080端口未被占用。" << std::endl;
-        closesocket(serverSocket);
-        return;
-    }
+    bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr));
+    listen(serverSocket, SOMAXCONN);
 
-    if (listen(serverSocket, SOMAXCONN) == SOCKET_ERROR) {
-        std::cerr << "Listen failed." << std::endl;
-        return;
-    }
-
-    std::cout << "\n==============================================" << std::endl;
-    std::cout << "  Web GUI 已启动! 请在浏览器访问: http://localhost:8080" << std::endl;
-    std::cout << "  按 Ctrl+C 可以在控制台强制结束" << std::endl;
-    std::cout << "==============================================\n" << std::endl;
+    std::cout << "Web GUI 服务已启动: http://localhost:8080" << std::endl;
+    std::cout << "现在你可以关闭控制台窗口，在浏览器中进行所有操作。" << std::endl;
 
     while (true) {
         SOCKET clientSocket = accept(serverSocket, NULL, NULL);
@@ -49,8 +37,6 @@ void WebGui::start() {
             closesocket(clientSocket);
         }
     }
-    
-    closesocket(serverSocket);
     WSACleanup();
 }
 
@@ -60,103 +46,217 @@ void WebGui::handleClient(int clientSocket) {
     if (bytesReceived <= 0) return;
 
     std::string request(buffer, bytesReceived);
-    
-    // 简单的路由判断
-    // 如果请求包含 "GET /ship?", 说明是点击了发货按钮
-    if (request.find("GET /ship?") != std::string::npos) {
-        handleShipRequest(request);
-        // 发货后重定向回主页
-        std::string response = "HTTP/1.1 302 Found\r\nLocation: /\r\n\r\n";
-        send(clientSocket, response.c_str(), response.size(), 0);
-    } 
-    else {
-        // 否则显示主页
-        std::string html = generateDashboard();
-        std::string response = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=utf-8\r\nContent-Length: " 
-                             + std::to_string(html.size()) + "\r\n\r\n" + html;
-        send(clientSocket, response.c_str(), response.size(), 0);
+    std::istringstream iss(request);
+    std::string method, url;
+    iss >> method >> url;
+
+    // 分离 URL 和 参数
+    std::string path = url;
+    std::string query = "";
+    size_t qPos = url.find('?');
+    if (qPos != std::string::npos) {
+        path = url.substr(0, qPos);
+        query = url.substr(qPos + 1);
     }
+    auto params = parseQuery(query);
+
+    std::string responseContent;
+    std::string contentType = "text/html; charset=utf-8";
+
+    // 简单的路由系统
+    if (path == "/") {
+        // 尝试读取 index.html
+        std::ifstream f("index.html");
+        if (f.is_open()) {
+            std::stringstream buffer;
+            buffer << f.rdbuf();
+            responseContent = buffer.str();
+        } else {
+            // 如果没找到文件，尝试去 src 找或者使用备用
+            std::ifstream fSrc("../src/index.html"); // 假设 build 目录结构
+            if(fSrc.is_open()){
+                std::stringstream buffer;
+                buffer << fSrc.rdbuf();
+                responseContent = buffer.str();
+            } else {
+                responseContent = FALLBACK_HTML;
+            }
+        }
+    } 
+    else if (path == "/api/regions") {
+        responseContent = handleApiRegions();
+        contentType = "application/json";
+    }
+    else if (path == "/api/goods") {
+        responseContent = handleApiGoods(params);
+        contentType = "application/json";
+    }
+    else if (path == "/api/ship") {
+        responseContent = handleApiShip(params);
+        contentType = "application/json";
+    }
+    else if (path == "/api/path") {
+        responseContent = handleApiPath(params);
+        contentType = "application/json";
+    }
+    
+    sendResponse(clientSocket, responseContent, contentType);
 }
 
-void WebGui::handleShipRequest(const std::string& request) {
-    // 解析 URL 参数: /ship?type=1&id=101
-    int type = getParam(request, "type");
-    int id = getParam(request, "id");
+// ------ API 处理器 ------
+
+std::string WebGui::handleApiRegions() {
+    // 手动构建 JSON 数组
+    std::string json = "[";
+    for (size_t i = 0; i < belongingRegionList.size(); ++i) {
+        json += "\"" + belongingRegionList[i] + "\"";
+        if (i < belongingRegionList.size() - 1) json += ",";
+    }
+    json += "]";
+    return json;
+}
+
+std::string WebGui::handleApiGoods(const std::map<std::string, std::string>& params) {
+    std::string region = "";
+    int scheme = 1;
+    if (params.count("region")) region = params.at("region");
+    if (params.count("scheme")) scheme = std::stoi(params.at("scheme"));
+
+    if (scheme < 1 || scheme > 4) scheme = 3;
+
+    auto list = logisticsTree[scheme].goodsList;
+    std::vector<Goods> filtered;
     
-    if (type >= 1 && type <= 4) {
-        auto& list = logisticsTree[type].goodsList;
-        // 使用 erase-remove idiom 删除指定ID的货物
+    for (const auto& g : list) {
+        if (g.belongingArea == region) filtered.push_back(g);
+    }
+    
+    // 排序
+    std::sort(filtered.begin(), filtered.end(), [](const Goods& a, const Goods& b) {
+        return a.priority > b.priority;
+    });
+
+    // 构建 JSON
+    std::string json = "[";
+    for (size_t i = 0; i < filtered.size(); ++i) {
+        const auto& g = filtered[i];
+        json += "{";
+        json += "\"id\":" + std::to_string(g.id) + ",";
+        json += "\"name\":\"" + g.name + "\",";
+        json += "\"sendingArea\":\"" + g.sendingArea + "\",";
+        json += "\"priority\":\"" + Utils::formatDouble(g.priority) + "\"";
+        json += "}";
+        if (i < filtered.size() - 1) json += ",";
+    }
+    json += "]";
+    return json;
+}
+
+std::string WebGui::handleApiShip(const std::map<std::string, std::string>& params) {
+    int id = 0; 
+    int scheme = 1;
+    if (params.count("id")) id = std::stoi(params.at("id"));
+    if (params.count("scheme")) scheme = std::stoi(params.at("scheme"));
+
+    bool found = false;
+    if (scheme >= 1 && scheme <= 4) {
+        auto& list = logisticsTree[scheme].goodsList;
         for (auto it = list.begin(); it != list.end(); ++it) {
             if (it->id == id) {
-                std::cout << "[Web操作] 已发货(删除) -> ID: " << id << " (方案: " << type << ")" << std::endl;
                 list.erase(it);
+                found = true;
                 break;
             }
         }
     }
+    return found ? "{\"success\":true}" : "{\"success\":false}";
 }
 
-int WebGui::getParam(const std::string& request, const std::string& key) {
-    std::string search = key + "=";
-    size_t pos = request.find(search);
-    if (pos == std::string::npos) return -1;
-    
-    size_t start = pos + search.length();
-    size_t end = request.find_first_of("& ", start);
-    std::string val = request.substr(start, end - start);
-    return std::stoi(val);
-}
+std::string WebGui::handleApiPath(const std::map<std::string, std::string>& params) {
+    std::string startRegion = "", endRegion = "";
+    int scheme = 1;
+    if (params.count("start")) startRegion = params.at("start");
+    if (params.count("end")) endRegion = params.at("end");
+    if (params.count("scheme")) scheme = std::stoi(params.at("scheme"));
 
-std::string WebGui::generateDashboard() {
-    std::stringstream ss;
-    ss << "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>物流管理系统</title>";
-    ss << "<style>";
-    ss << "body { font-family: '微软雅黑', sans-serif; background-color: #f4f6f9; padding: 20px; }";
-    ss << "h1 { text-align: center; color: #333; }";
-    ss << ".card { background: white; margin-bottom: 20px; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }";
-    ss << "h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #007bff; }";
-    ss << "table { width: 100%; border-collapse: collapse; margin-top: 10px; }";
-    ss << "th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }";
-    ss << "th { background-color: #f8f9fa; font-weight: bold; }";
-    ss << "tr:nth-child(even) { background-color: #f9f9f9; }";
-    ss << ".btn { display: inline-block; padding: 5px 10px; color: white; background-color: #28a745; text-decoration: none; border-radius: 4px; }";
-    ss << ".btn:hover { background-color: #218838; }";
-    ss << "</style></head><body>";
+    int u = -1, v = -1;
+    auto it1 = std::find(belongingRegionList.begin(), belongingRegionList.end(), startRegion);
+    if(it1 != belongingRegionList.end()) u = std::distance(belongingRegionList.begin(), it1);
     
-    ss << "<h1>📦 智慧物流管理系统控制台</h1>";
+    auto it2 = std::find(belongingRegionList.begin(), belongingRegionList.end(), endRegion);
+    if(it2 != belongingRegionList.end()) v = std::distance(belongingRegionList.begin(), it2);
 
-    // 遍历4种方案，生成4个表格
-    for (int i = 1; i <= 4; ++i) {
-        ss << "<div class='card'>";
-        ss << "<h2>" << logisticsTree[i].schemeName << " (方案Type: " << i << ")</h2>";
-        
-        if (logisticsTree[i].goodsList.empty()) {
-            ss << "<p>暂无货物</p>";
-        } else {
-            ss << "<table>";
-            ss << "<thead><tr><th>ID</th><th>名称</th><th>所属地</th><th>发往地</th><th>客户等级</th><th>接收日期</th><th>优先级</th><th>操作</th></tr></thead>";
-            ss << "<tbody>";
-            
-            // 这里为了展示方便，我们可以临时排个序，或者直接显示
-            // 如果想保持 C++ 端的排序，可以在这里先 sort 一下副本，但为了性能直接显示即可
-            for (const auto& g : logisticsTree[i].goodsList) {
-                ss << "<tr>";
-                ss << "<td>" << g.id << "</td>";
-                ss << "<td>" << g.name << "</td>";
-                ss << "<td>" << g.belongingArea << "</td>";
-                ss << "<td>" << g.sendingArea << "</td>";
-                ss << "<td>" << g.clientGrade << "</td>";
-                ss << "<td>" << g.dateStr << "</td>";
-                ss << "<td>" << Utils::formatDouble(g.priority) << "</td>";
-                // 发货按钮链接到 /ship?type=X&id=Y
-                ss << "<td><a class='btn' href='/ship?type=" << i << "&id=" << g.id << "'>🚀 发货</a></td>";
-                ss << "</tr>";
-            }
-            ss << "</tbody></table>";
-        }
-        ss << "</div>";
+    std::string resultText = "无法识别地区";
+    if (u != -1 && v != -1) {
+        auto matrix = getGraphForScheme(scheme);
+        resultText = Dijkstra::minStep(matrix, u, v, belongingRegionList);
+    }
+    
+    // 对结果中的换行符进行转义，以符合 JSON 格式
+    std::string escaped;
+    for (char c : resultText) {
+        if (c == '\n') escaped += "\\n";
+        else escaped += c;
     }
 
-    ss << "</body></html>";
-    return ss.str();
+    return "{\"result\":\"" + escaped + "\"}";
+}
+
+// ------ 辅助函数 ------
+
+std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) {
+    std::map<std::string, std::string> params;
+    std::vector<std::string> pairs = Utils::split(query, '&');
+    for (const auto& pair : pairs) {
+        size_t eq = pair.find('=');
+        if (eq != std::string::npos) {
+            std::string key = pair.substr(0, eq);
+            std::string val = pair.substr(eq + 1);
+            // 简单的 URL 解码
+            std::string decoded;
+            for (size_t i = 0; i < val.length(); i++) {
+                if (val[i] == '%' && i + 2 < val.length()) {
+                    int hex;
+                    std::sscanf(val.substr(i + 1, 2).c_str(), "%x", &hex);
+                    decoded += static_cast<char>(hex);
+                    i += 2;
+                } else if (val[i] == '+') {
+                    decoded += ' ';
+                } else {
+                    decoded += val[i];
+                }
+            }
+            params[key] = decoded;
+        }
+    }
+    return params;
+}
+
+std::vector<std::vector<int>> WebGui::getGraphForScheme(int schemeId) {
+    int size = belongingRegionList.size();
+    if (schemeId == 1) return Utils::readMatrix("../data/regionPrice.csv", size, belongingRegionList);
+    if (schemeId == 2) return Utils::readMatrix("../data/regionDistance.csv", size, belongingRegionList);
+    if (schemeId == 4) return Utils::readMatrix("../data/regionAir.csv", size, belongingRegionList);
+    
+    // 方案3 综合
+    auto timeM = Utils::readMatrix("../data/regionDistance.csv", size, belongingRegionList);
+    auto priceM = Utils::readMatrix("../data/regionPrice.csv", size, belongingRegionList);
+    std::vector<std::vector<int>> combined(size, std::vector<int>(size));
+    
+    for(int i=0; i<size; ++i) {
+        for(int j=0; j<size; ++j) {
+            if(timeM[i][j] >= 10000 || priceM[i][j] >= 10000) combined[i][j] = 10000;
+            else combined[i][j] = timeM[i][j] + (int)(priceM[i][j] * 0.1);
+        }
+    }
+    return combined;
+}
+
+void WebGui::sendResponse(int socket, const std::string& content, const std::string& contentType) {
+    std::string response = "HTTP/1.1 200 OK\r\n";
+    response += "Content-Type: " + contentType + "\r\n";
+    response += "Content-Length: " + std::to_string(content.size()) + "\r\n";
+    response += "Connection: close\r\n\r\n";
+    response += content;
+    send(socket, response.c_str(), response.size(), 0);
 }

@@ -2,10 +2,13 @@
 #include <iostream>
 #include <climits>
 #include <algorithm>
+#include <sstream>
 
-void Dijkstra::minStep(const std::vector<std::vector<int>>& weight, 
+std::string Dijkstra::minStep(const std::vector<std::vector<int>>& weight, 
                        int start, int end, 
-                       const std::vector<std::string>& regions) {
+                       const std::vector<std::string>& regions) 
+{
+    std::stringstream ss;
     int n = weight.size();
     std::vector<int> shortPath(n);
     std::vector<std::string> path(n);
@@ -31,12 +34,11 @@ void Dijkstra::minStep(const std::vector<std::vector<int>>& weight,
             }
         }
 
-        if (k == -1) break; // 无法到达其他节点
+        if (k == -1) break;
 
         visited[k] = 1;
 
         for (int i = 0; i < n; i++) {
-            // 这里假设 weight[k][i] < INT_MAX
             if (visited[i] == 0 && weight[k][i] < INT_MAX) {
                 if (dmin + weight[k][i] < shortPath[i]) {
                     shortPath[i] = dmin + weight[k][i];
@@ -46,20 +48,25 @@ void Dijkstra::minStep(const std::vector<std::vector<int>>& weight,
         }
     }
 
+    // 构建返回字符串
     if (end == -1) {
         for (int i = 0; i < n; i++) {
-            if (shortPath[i] >= 10000) { // 10000代表不可达
-                 std::cout << "从" << regions[start] << "到" << regions[i] << "不可达" << std::endl;
+            if (shortPath[i] >= 10000) {
+                 ss << "从 " << regions[start] << " 到 " << regions[i] << " 不可达\n";
             } else {
-                std::cout << "从" << regions[start] << "出发到" << regions[i] 
-                          << "的最短路径为：" << path[i] 
-                          << "，最短距离为：" << shortPath[i] << std::endl;
+                ss << "从 " << regions[start] << " 到 " << regions[i] 
+                   << " 最短路径: " << path[i] 
+                   << ", 距离: " << shortPath[i] << "\n";
             }
         }
-        std::cout << "=====================================" << std::endl;
     } else {
-         std::cout << "从" << regions[start] << "出发到" << regions[end] 
-                   << "的最短路径为：" << path[end] 
-                   << "，最短距离为：" << shortPath[end] << std::endl;
+         if (shortPath[end] >= 10000) {
+             ss << "从 " << regions[start] << " 到 " << regions[end] << " 不可达";
+         } else {
+             ss << "从 " << regions[start] << " 到 " << regions[end] 
+                << " 最短路径: " << path[end] 
+                << ", 距离: " << shortPath[end];
+         }
     }
+    return ss.str();
 }
