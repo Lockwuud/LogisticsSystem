@@ -59,7 +59,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>名称</th>
-                                <th>发往地</th>
+                                <th>所属地</th> <th>发往地</th>
                                 <th>优先级</th>
                                 <th>操作</th>
                             </tr>
@@ -91,7 +91,6 @@
 </div>
 
 <script>
-    // 页面加载完毕后执行
     document.addEventListener('DOMContentLoaded', async () => {
         await loadRegions();
         loadGoods();
@@ -107,14 +106,18 @@
         rSelect.innerHTML = '';
         tSelect.innerHTML = '';
         
+        // [新增] 添加 "所有地区" 选项
+        let optAll = document.createElement('option');
+        optAll.value = "ALL";
+        optAll.text = "== 查看全部地区 ==";
+        rSelect.add(optAll);
+
         regions.forEach((r, index) => {
-            // 地区选择
             let opt = document.createElement('option');
             opt.value = r;
             opt.text = r;
             rSelect.add(opt);
 
-            // 目标地区选择
             let opt2 = document.createElement('option');
             opt2.value = r;
             opt2.text = r;
@@ -125,6 +128,7 @@
     async function loadGoods() {
         const region = document.getElementById('regionSelect').value;
         const scheme = document.getElementById('schemeSelect').value;
+        // 如果是 ALL，我们就不检查 region 是否为空了
         if(!region) return;
 
         const res = await fetch(`/api/goods?region=${encodeURIComponent(region)}&scheme=${scheme}`);
@@ -134,7 +138,7 @@
         tbody.innerHTML = '';
 
         if(goods.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="5" class="text-center">该地区下暂无属于此方案的货物</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" class="text-center">该选项下暂无货物</td></tr>';
             return;
         }
 
@@ -143,11 +147,11 @@
             tr.innerHTML = `
                 <td>${g.id}</td>
                 <td>${g.name}</td>
-                <td>${g.sendingArea}</td>
+                <td><span class="badge bg-secondary">${g.belongingArea}</span></td> <td>${g.sendingArea}</td>
                 <td>${g.priority}</td>
                 <td>
                     <button class="btn btn-sm btn-success" onclick="shipGoods(${g.id}, '${g.sendingArea}')">发货</button>
-                    <button class="btn btn-sm btn-outline-info" onclick="checkPathTo('${g.sendingArea}')">查路径</button>
+                    <button class="btn btn-sm btn-outline-info" onclick="checkPathTo('${g.belongingArea}', '${g.sendingArea}')">查路径</button>
                 </td>
             `;
             tbody.appendChild(tr);
@@ -162,24 +166,39 @@
         const result = await res.json();
         
         if(result.success) {
-            // 自动查询一次路径展示给用户
-            await checkPathTo(target);
-            alert('发货成功！路径已显示在右侧。');
-            loadGoods(); // 刷新列表
+            alert('发货成功！');
+            loadGoods();
         } else {
             alert('发货失败');
         }
     }
 
-    async function checkPathTo(target) {
-        document.getElementById('targetRegionSelect').value = target;
-        calculatePath();
+    // 修改：支持传入起点，因为现在可能是“全部显示”模式，起点不一定是下拉框选中的
+    async function checkPathTo(start, end) {
+        // 更新下拉框UI，让用户知道当前的关注点
+        const rSelect = document.getElementById('regionSelect');
+        const tSelect = document.getElementById('targetRegionSelect');
+        
+        // 如果当前是 ALL 模式，临时在路径计算里不改变下拉框，直接算
+        // 如果不是 ALL 模式，可以更新UI
+        if(rSelect.value !== 'ALL') {
+            rSelect.value = start;
+        }
+        tSelect.value = end;
+        
+        calculatePath(start, end);
     }
 
-    async function calculatePath() {
-        const start = document.getElementById('regionSelect').value;
-        const end = document.getElementById('targetRegionSelect').value;
+    async function calculatePath(forceStart = null, forceEnd = null) {
+        // 优先使用传入的参数，否则使用下拉框的值
+        let start = forceStart || document.getElementById('regionSelect').value;
+        let end = forceEnd || document.getElementById('targetRegionSelect').value;
         const scheme = document.getElementById('schemeSelect').value;
+
+        if (start === 'ALL') {
+            document.getElementById('pathResult').innerText = "请先选择一个具体的起始地区来计算路径，或者点击列表中的'查路径'按钮。";
+            return;
+        }
 
         document.getElementById('pathResult').innerText = "计算中...";
 

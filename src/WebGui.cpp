@@ -9,7 +9,7 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-// 如果你不想创建 index.html 文件，可以将上面的 HTML 代码粘贴在这个字符串里
+// 简单的备用 HTML，防止找不到 index.html 时一片空白
 const std::string FALLBACK_HTML = R"(
 <!DOCTYPE html><html><body><h1>请在同级目录下创建 index.html 文件以加载完整界面。</h1></body></html>
 )";
@@ -24,7 +24,15 @@ void WebGui::start() {
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     serverAddr.sin_port = htons(8080);
 
-    bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr));
+    // 允许端口重用，避免重启时提示端口被占用
+    int opt = 1;
+    setsockopt(serverSocket, SOL_SOCKET, SO_REUSEADDR, (const char*)&opt, sizeof(opt));
+
+    if (bind(serverSocket, (sockaddr*)&serverAddr, sizeof(serverAddr)) == SOCKET_ERROR) {
+        std::cerr << "绑定端口 8080 失败 (Error: " << WSAGetLastError() << ")" << std::endl;
+        return;
+    }
+    
     listen(serverSocket, SOMAXCONN);
 
     std::cout << "Web GUI 服务已启动: http://localhost:8080" << std::endl;
@@ -50,7 +58,6 @@ void WebGui::handleClient(int clientSocket) {
     std::string method, url;
     iss >> method >> url;
 
-    // 分离 URL 和 参数
     std::string path = url;
     std::string query = "";
     size_t qPos = url.find('?');
@@ -63,17 +70,15 @@ void WebGui::handleClient(int clientSocket) {
     std::string responseContent;
     std::string contentType = "text/html; charset=utf-8";
 
-    // 简单的路由系统
     if (path == "/") {
-        // 尝试读取 index.html
         std::ifstream f("index.html");
         if (f.is_open()) {
             std::stringstream buffer;
             buffer << f.rdbuf();
             responseContent = buffer.str();
         } else {
-            // 如果没找到文件，尝试去 src 找或者使用备用
-            std::ifstream fSrc("../src/index.html"); // 假设 build 目录结构
+            // 尝试去上级目录或 src 找
+            std::ifstream fSrc("../src/index.html"); 
             if(fSrc.is_open()){
                 std::stringstream buffer;
                 buffer << fSrc.rdbuf();
@@ -106,7 +111,6 @@ void WebGui::handleClient(int clientSocket) {
 // ------ API 处理器 ------
 
 std::string WebGui::handleApiRegions() {
-    // 手动构建 JSON 数组
     std::string json = "[";
     for (size_t i = 0; i < belongingRegionList.size(); ++i) {
         json += "\"" + belongingRegionList[i] + "\"";
@@ -128,21 +132,23 @@ std::string WebGui::handleApiGoods(const std::map<std::string, std::string>& par
     std::vector<Goods> filtered;
     
     for (const auto& g : list) {
-        if (g.belongingArea == region) filtered.push_back(g);
+        // [新增功能] 如果 region 是 "ALL" 或空，则显示所有地区的货物
+        if (region == "ALL" || region.empty() || g.belongingArea == region) {
+            filtered.push_back(g);
+        }
     }
     
-    // 排序
     std::sort(filtered.begin(), filtered.end(), [](const Goods& a, const Goods& b) {
         return a.priority > b.priority;
     });
 
-    // 构建 JSON
     std::string json = "[";
     for (size_t i = 0; i < filtered.size(); ++i) {
         const auto& g = filtered[i];
         json += "{";
         json += "\"id\":" + std::to_string(g.id) + ",";
         json += "\"name\":\"" + g.name + "\",";
+        json += "\"belongingArea\":\"" + g.belongingArea + "\","; // [新增字段] 返回所属地
         json += "\"sendingArea\":\"" + g.sendingArea + "\",";
         json += "\"priority\":\"" + Utils::formatDouble(g.priority) + "\"";
         json += "}";
@@ -192,7 +198,6 @@ std::string WebGui::handleApiPath(const std::map<std::string, std::string>& para
         resultText = Dijkstra::minStep(matrix, u, v, belongingRegionList);
     }
     
-    // 对结果中的换行符进行转义，以符合 JSON 格式
     std::string escaped;
     for (char c : resultText) {
         if (c == '\n') escaped += "\\n";
@@ -202,8 +207,6 @@ std::string WebGui::handleApiPath(const std::map<std::string, std::string>& para
     return "{\"result\":\"" + escaped + "\"}";
 }
 
-// ------ 辅助函数 ------
-
 std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) {
     std::map<std::string, std::string> params;
     std::vector<std::string> pairs = Utils::split(query, '&');
@@ -212,7 +215,6 @@ std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) 
         if (eq != std::string::npos) {
             std::string key = pair.substr(0, eq);
             std::string val = pair.substr(eq + 1);
-            // 简单的 URL 解码
             std::string decoded;
             for (size_t i = 0; i < val.length(); i++) {
                 if (val[i] == '%' && i + 2 < val.length()) {
@@ -238,7 +240,6 @@ std::vector<std::vector<int>> WebGui::getGraphForScheme(int schemeId) {
     if (schemeId == 2) return Utils::readMatrix("../data/regionDistance.csv", size, belongingRegionList);
     if (schemeId == 4) return Utils::readMatrix("../data/regionAir.csv", size, belongingRegionList);
     
-    // 方案3 综合
     auto timeM = Utils::readMatrix("../data/regionDistance.csv", size, belongingRegionList);
     auto priceM = Utils::readMatrix("../data/regionPrice.csv", size, belongingRegionList);
     std::vector<std::vector<int>> combined(size, std::vector<int>(size));
