@@ -1,0 +1,3 @@
+E:/code/LogisticsSystem/build/CMakeFiles/LogisticsSystem.dir
+E:/code/LogisticsSystem/build/CMakeFiles/edit_cache.dir
+E:/code/LogisticsSystem/build/CMakeFiles/rebuild_cache.dir
