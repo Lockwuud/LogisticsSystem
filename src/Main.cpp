@@ -5,17 +5,12 @@
 #include <set>
 #include <map>
 #include <sstream>
+
+#include "GlobalData.h"
+#include "WebGui.h"
 #include "Goods.h"
 #include "Utils.h"
 #include "Dijkstra.h"
-
-// --- 1. 定义树型结构 ---
-// 结构：Root -> 方案节点(1,2,3,4) -> 货物列表(Leaf)
-struct SchemeNode {
-    int schemeId;           // 1:价格最小, 2:时间最短, 3:综合最优, 4:航空
-    std::string schemeName;
-    std::vector<Goods> goodsList; // 该方案下的货物
-};
 
 // 全局的树结构 (0号下标留空，方便对应ID 1-4)
 SchemeNode logisticsTree[5]; 
@@ -53,6 +48,8 @@ int main() {
         for (size_t i = 0; i < belongingRegionList.size(); i++) {
             std::cout << i + 1 << "." << belongingRegionList[i] << std::endl;
         }
+
+        std::cout << "9. [启动网页图形界面 GUI]" << std::endl; 
         std::cout << "\n0.退出系统" << std::endl;
 
         int inputValue;
@@ -60,9 +57,18 @@ int main() {
             if (inputValue == 0) {
                 std::cout << "--------------系统登出-------------" << std::endl;
                 break;
-            } else if (inputValue > 0 && inputValue <= (int)belongingRegionList.size()) {
+            } 
+            else if (inputValue == 9)
+            {
+                WebGui gui;
+                gui.start();
+            }
+            else if (inputValue > 0 && inputValue <= (int)belongingRegionList.size()) 
+            {
                 regionSelector(inputValue - 1);
-            } else {
+            } 
+            else 
+            {
                 std::cout << "输入错误！请重新输入！" << std::endl;
             }
         } else {

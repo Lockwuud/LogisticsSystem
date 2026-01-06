@@ -224,6 +224,30 @@ src/Utils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LogisticsSystem.dir\build.make CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.s
 .PHONY : src/Utils.cpp.s
 
+src/WebGui.obj: src/WebGui.cpp.obj
+.PHONY : src/WebGui.obj
+
+# target to build an object file
+src/WebGui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LogisticsSystem.dir\build.make CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj
+.PHONY : src/WebGui.cpp.obj
+
+src/WebGui.i: src/WebGui.cpp.i
+.PHONY : src/WebGui.i
+
+# target to preprocess a source file
+src/WebGui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LogisticsSystem.dir\build.make CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.i
+.PHONY : src/WebGui.cpp.i
+
+src/WebGui.s: src/WebGui.cpp.s
+.PHONY : src/WebGui.s
+
+# target to generate assembly for a file
+src/WebGui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LogisticsSystem.dir\build.make CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.s
+.PHONY : src/WebGui.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -245,6 +269,9 @@ help:
 	@echo ... src/Utils.obj
 	@echo ... src/Utils.i
 	@echo ... src/Utils.s
+	@echo ... src/WebGui.obj
+	@echo ... src/WebGui.i
+	@echo ... src/WebGui.s
 .PHONY : help
 
 

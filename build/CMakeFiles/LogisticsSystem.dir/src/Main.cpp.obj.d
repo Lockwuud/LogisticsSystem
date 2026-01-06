@@ -172,7 +172,9 @@ CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj: \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_multimap.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/sstream \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/sstream.tcc \
+ E:/code/LogisticsSystem/include/GlobalData.h \
+ E:/code/LogisticsSystem/include/Goods.h \
+ E:/code/LogisticsSystem/include/WebGui.h \
  E:/code/LogisticsSystem/include/Goods.h \
  E:/code/LogisticsSystem/include/Utils.h \
- E:/code/LogisticsSystem/include/Goods.h \
  E:/code/LogisticsSystem/include/Dijkstra.h
