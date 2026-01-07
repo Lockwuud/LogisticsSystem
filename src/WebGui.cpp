@@ -229,7 +229,18 @@ std::string WebGui::handleApiDbInsert(const std::map<std::string, std::string>& 
 std::string WebGui::handleApiDbQuery(const std::map<std::string, std::string>& params) {
     std::string table = params.count("table") ? params.at("table") : "";
     std::string key = params.count("key") ? params.at("key") : "";
-    return DBManager::query(table, key);
+    
+    // [新增] 解析列索引，默认为 -1 (表示全文搜索)
+    int colIdx = -1;
+    if (params.count("colIdx")) {
+        try {
+            colIdx = std::stoi(params.at("colIdx"));
+        } catch(...) {
+            colIdx = -1;
+        }
+    }
+    
+    return DBManager::query(table, key, colIdx);
 }
 
 std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) {

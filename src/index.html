@@ -90,7 +90,7 @@
                             <hr>
                             <div class="mb-3">
                                 <label>选择操作表</label>
-                                <select id="dbTableSelect" class="form-select" onchange="loadTableData()">
+                                <select id="dbTableSelect" class="form-select" onchange="resetAndLoad()">
                                     <option value="">-- 请选择 --</option>
                                 </select>
                             </div>
@@ -107,9 +107,11 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <span>🔍 数据查询 (共享锁)</span>
-                            <div class="input-group w-50">
+                            <div class="input-group w-75"> <select id="searchColSelect" class="form-select form-select-sm" style="max-width: 150px;">
+                                    <option value="-1">全部列</option>
+                                </select>
                                 <input type="text" id="searchKey" class="form-control form-control-sm" placeholder="关键字...">
-                                <button class="btn btn-sm btn-secondary" onclick="loadTableData()">查询</button>
+                                <button class="btn btn-sm btn-secondary" onclick="loadTableData(true)">查询</button>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -186,21 +188,55 @@
         const d = await res.json();
         if(d.success) { alert('写入成功'); loadTableData(); } else alert('写入失败 (可能被锁阻塞)');
     }
-    async function loadTableData() {
+    async function loadTableData(isQueryClick = false) {    
         const table = document.getElementById('dbTableSelect').value;
         const key = document.getElementById('searchKey').value;
+        const colSelect = document.getElementById('searchColSelect');
+        // 获取当前选中的列索引，如果是初次加载则为 -1
+        let colIdx = colSelect.value || -1;
+
         if(!table) return;
-        const res = await fetch(`/api/db/query?table=${table}&key=${encodeURIComponent(key)}`);
+
+        // 发送请求
+        const res = await fetch(`/api/db/query?table=${table}&key=${encodeURIComponent(key)}&colIdx=${colIdx}`);
         const rows = await res.json();
+        
         const container = document.getElementById('tableContainer');
-        if(rows.length === 0) { container.innerHTML = '<p class="text-center p-3">无数据</p>'; return; }
+        if(rows.length === 0) { 
+            container.innerHTML = '<p class="text-center p-3">无数据</p>'; 
+            return; 
+        }
+
+        // --- [新增逻辑] 动态更新“搜索列”下拉框 ---
+        // 只有当不是点击“查询”按钮触发的（即切换表时），或者是第一次加载时，才更新下拉框
+        // 这样可以避免用户选了“Name”列，一点查询，下拉框又重置回“全部列”了
+        if (!isQueryClick) {
+            const cols = Object.keys(rows[0]); // 获取表头
+            colSelect.innerHTML = '<option value="-1">全部列</option>';
+            cols.forEach((c, index) => {
+                colSelect.add(new Option(c, index)); // value 是索引 0, 1, 2...
+            });
+        }
+        // ---------------------------------------
+
+        // 渲染表格
         const cols = Object.keys(rows[0]);
         let html = '<table class="table table-bordered table-sm mb-0"><thead><tr>';
         cols.forEach(c => html += `<th>${c}</th>`);
         html += '</tr></thead><tbody>';
-        rows.forEach(r => { html += '<tr>'; cols.forEach(c => html += `<td>${r[c]}</td>`); html += '</tr>'; });
+        rows.forEach(r => {
+            html += '<tr>';
+            cols.forEach(c => html += `<td>${r[c]}</td>`);
+            html += '</tr>';
+        });
         html += '</tbody></table>';
         container.innerHTML = html;
+    }
+    function resetAndLoad() {
+        // 切换表时，清空搜索框和列选择
+        document.getElementById('searchKey').value = '';
+        document.getElementById('searchColSelect').innerHTML = '<option value="-1">全部列</option>';
+        loadTableData(false);
     }
 </script>
 </body>

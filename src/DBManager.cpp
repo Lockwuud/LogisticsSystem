@@ -9,12 +9,10 @@
 
 namespace fs = std::filesystem;
 
-// 数据存放目录
 const std::string DATA_DIR = "../data/";
 
 std::string DBManager::getFilePath(const std::string& tableName) {
     std::string safeName = tableName;
-    // 简单过滤非法字符，防止路径遍历
     if (safeName.find("..") != std::string::npos) safeName = "default";
     return DATA_DIR + safeName + ".csv";
 }
@@ -25,12 +23,11 @@ bool DBManager::createTable(const std::string& tableName, const std::vector<std:
     }
 
     std::string path = getFilePath(tableName);
-    if (fs::exists(path)) return false; // 表已存在
+    if (fs::exists(path)) return false; 
 
     std::ofstream file(path);
     if (!file.is_open()) return false;
 
-    // 写入表头
     for (size_t i = 0; i < headers.size(); ++i) {
         file << headers[i];
         if (i < headers.size() - 1) file << ",";
@@ -43,36 +40,46 @@ bool DBManager::createTable(const std::string& tableName, const std::vector<std:
 bool DBManager::insertRecord(const std::string& tableName, const std::string& recordLine) {
     std::string path = getFilePath(tableName);
     
-    // 打开文件获取句柄
+    // [修复] 使用 GENERIC_WRITE 替代 FILE_APPEND_DATA，否则 LockFileEx 会因权限不足失败
     HANDLE hFile = CreateFileA(
         path.c_str(),
-        FILE_APPEND_DATA, // 仅追加权限
-        FILE_SHARE_READ,  // 允许别人读（但在我们加锁前）
+        GENERIC_READ | GENERIC_WRITE, 
+        FILE_SHARE_READ, 
         NULL,
         OPEN_EXISTING,
         FILE_ATTRIBUTE_NORMAL,
         NULL
     );
 
-    if (hFile == INVALID_HANDLE_VALUE) return false;
+    if (hFile == INVALID_HANDLE_VALUE) {
+        std::cerr << "[Error] 打开文件失败: " << path << " Error: " << GetLastError() << std::endl;
+        return false;
+    }
 
     OVERLAPPED overlapped = {0};
     
-    // --- 关键点：申请互斥锁 (LOCKFILE_EXCLUSIVE_LOCK) ---
-    // 如果有其他进程正在读或写，这里会阻塞等待，直到获得锁
+    // 申请互斥锁
     if (!LockFileEx(hFile, LOCKFILE_EXCLUSIVE_LOCK, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
+        std::cerr << "[Error] 加锁失败 Error: " << GetLastError() << std::endl;
         CloseHandle(hFile);
         return false;
     }
 
-    // 写入数据
+    // [修复] 手动移动指针到文件末尾以实现追加
+    SetFilePointer(hFile, 0, NULL, FILE_END);
+
     DWORD bytesWritten;
     std::string line = recordLine + "\n";
-    WriteFile(hFile, line.c_str(), line.size(), &bytesWritten, NULL);
+    BOOL writeSuccess = WriteFile(hFile, line.c_str(), line.size(), &bytesWritten, NULL);
 
-    // --- 释放锁 ---
+    // 释放锁
     UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
     CloseHandle(hFile);
+
+    if (!writeSuccess) {
+        std::cerr << "[Error] 写入数据失败 Error: " << GetLastError() << std::endl;
+        return false;
+    }
 
     return true;
 }
@@ -83,8 +90,8 @@ std::string DBManager::query(const std::string& tableName, const std::string& ke
 
     HANDLE hFile = CreateFileA(
         path.c_str(),
-        GENERIC_READ,
-        FILE_SHARE_READ | FILE_SHARE_WRITE, // 允许共享
+        GENERIC_READ | GENERIC_WRITE, 
+        FILE_SHARE_READ | FILE_SHARE_WRITE, 
         NULL,
         OPEN_EXISTING,
         FILE_ATTRIBUTE_NORMAL,
@@ -95,14 +102,13 @@ std::string DBManager::query(const std::string& tableName, const std::string& ke
 
     OVERLAPPED overlapped = {0};
 
-    // --- 关键点：申请共享锁 (0) ---
-    // 0 代表共享锁。允许多个进程同时进入这里读，但拒绝任何进程写
+    // 申请共享锁
     if (!LockFileEx(hFile, 0, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
         CloseHandle(hFile);
         return "[]";
     }
 
-    // 读取全部内容
+    // 读取内容
     DWORD fileSize = GetFileSize(hFile, NULL);
     std::string fileContent;
     if (fileSize > 0) {
@@ -112,14 +118,14 @@ std::string DBManager::query(const std::string& tableName, const std::string& ke
         fileContent.assign(buffer.data(), bytesRead);
     }
 
-    // --- 释放锁 ---
     UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
     CloseHandle(hFile);
 
-    // 内存解析 CSV
     std::stringstream ss(fileContent);
     std::string line;
-    std::getline(ss, line); // 表头
+    
+    // 读取表头
+    std::getline(ss, line); 
     if (!line.empty() && line.back() == '\r') line.pop_back();
     std::vector<std::string> headers = Utils::split(line, ',');
     
@@ -129,16 +135,23 @@ std::string DBManager::query(const std::string& tableName, const std::string& ke
         if (line.back() == '\r') line.pop_back();
 
         bool match = false;
-        // 如果 key 为空，视为查询所有
+        // 必须先分割，因为如果是指定列查询，需要访问 cols[index]
+        std::vector<std::string> cols = Utils::split(line, ',');
+
         if (key.empty()) {
             match = true;
         } else {
-            // 简单包含查询
-            if (line.find(key) != std::string::npos) match = true;
+            // [核心修改] 判断是指定列查询还是全文查询
+            if (columnIndex >= 0 && columnIndex < (int)cols.size()) {
+                // 指定列查询：只检查对应列是否包含关键字
+                if (cols[columnIndex].find(key) != std::string::npos) match = true;
+            } else {
+                // 全文查询：检查整行
+                if (line.find(key) != std::string::npos) match = true;
+            }
         }
 
         if (match) {
-            std::vector<std::string> cols = Utils::split(line, ',');
             if (!first) resultJson += ",";
             resultJson += "{";
             for(size_t i=0; i<cols.size() && i<headers.size(); ++i) {
