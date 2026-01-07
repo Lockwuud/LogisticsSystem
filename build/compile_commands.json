@@ -25,6 +25,12 @@
 },
 {
   "directory": "E:/code/LogisticsSystem/build",
+  "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/SQLParser.cpp.obj -c E:/code/LogisticsSystem/src/SQLParser.cpp",
+  "file": "E:/code/LogisticsSystem/src/SQLParser.cpp",
+  "output": "CMakeFiles/LogisticsSystem.dir/src/SQLParser.cpp.obj"
+},
+{
+  "directory": "E:/code/LogisticsSystem/build",
   "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj -c E:/code/LogisticsSystem/src/Utils.cpp",
   "file": "E:/code/LogisticsSystem/src/Utils.cpp",
   "output": "CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj"

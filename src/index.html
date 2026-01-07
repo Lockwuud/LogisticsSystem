@@ -26,6 +26,9 @@
         <li class="nav-item">
             <button class="nav-link" id="exp2-tab" data-bs-toggle="tab" data-bs-target="#exp2">实验二：数据管理(文件锁)</button>
         </li>
+        <li class="nav-item">
+            <button class="nav-link" id="exp3-tab" data-bs-toggle="tab" data-bs-target="#exp3">实验三：SQL解析器</button>
+        </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
@@ -120,6 +123,33 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="exp3" role="tabpanel">
+            <div class="card">
+                <div class="card-header bg-dark text-white">💻 SQL 交互控制台</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">请输入 SQL 语句 (支持 SELECT, INSERT, CREATE TABLE, DELETE, UPDATE)</label>
+                        <textarea id="sqlInput" class="form-control" rows="4" style="font-family: monospace; background: #f8f9fa;" placeholder="例如：
+        CREATE TABLE teacher (id, name, course);
+        INSERT INTO teacher VALUES (1, MrWang, Math);
+        SELECT * FROM teacher WHERE name = MrWang;"></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="runSQL()">▶ 执行解析 (Run)</button>
+                    <button class="btn btn-outline-secondary" onclick="document.getElementById('sqlInput').value=''">清空</button>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">执行结果</div>
+                <div class="card-body">
+                    <div id="sqlResult" class="p-3 bg-light border rounded" style="min-height: 100px;">
+                        <span class="text-muted">等待执行...</span>
+                    </div>
+                    <div id="sqlTableContainer" class="mt-3"></div>
                 </div>
             </div>
         </div>
@@ -237,6 +267,57 @@
         document.getElementById('searchKey').value = '';
         document.getElementById('searchColSelect').innerHTML = '<option value="-1">全部列</option>';
         loadTableData(false);
+    }
+
+    // --- 实验三 JS ---
+    async function runSQL() {
+        const sqlRaw = document.getElementById('sqlInput').value.trim();
+        if(!sqlRaw) return;
+
+        // 支持多条语句以分号分隔 (简单实现：循环发送)
+        const sqls = sqlRaw.split(';').filter(s => s.trim().length > 0);
+        
+        const resDiv = document.getElementById('sqlResult');
+        const tableDiv = document.getElementById('sqlTableContainer');
+        resDiv.innerHTML = '';
+        tableDiv.innerHTML = '';
+
+        for (let sql of sqls) {
+            sql = sql.trim();
+            resDiv.innerHTML += `<div><strong>> ${sql}</strong></div>`;
+            
+            try {
+                const res = await fetch(`/api/sql/execute?q=${encodeURIComponent(sql)}`);
+                const d = await res.json();
+                
+                if(d.success) {
+                    resDiv.innerHTML += `<div class="text-success">✅ ${d.msg || 'Success'}</div>`;
+                    if(d.data) {
+                        renderSqlTable(d.data);
+                    }
+                } else {
+                    resDiv.innerHTML += `<div class="text-danger">❌ ${d.msg}</div>`;
+                }
+            } catch(e) {
+                resDiv.innerHTML += `<div class="text-danger">❌ 网络或解析错误</div>`;
+            }
+            resDiv.innerHTML += `<hr>`;
+        }
+    }
+
+    function renderSqlTable(rows) {
+        if(!rows || rows.length === 0) return;
+        const cols = Object.keys(rows[0]);
+        let html = '<table class="table table-bordered table-sm table-hover"><thead><tr>';
+        cols.forEach(c => html += `<th>${c}</th>`);
+        html += '</tr></thead><tbody>';
+        rows.forEach(r => {
+            html += '<tr>';
+            cols.forEach(c => html += `<td>${r[c]}</td>`);
+            html += '</tr>';
+        });
+        html += '</tbody></table>';
+        document.getElementById('sqlTableContainer').innerHTML = html;
     }
 </script>
 </body>

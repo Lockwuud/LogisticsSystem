@@ -85,12 +85,12 @@ clean: CMakeFiles/LogisticsSystem.dir/clean
 CMakeFiles/LogisticsSystem.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target LogisticsSystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target LogisticsSystem"
 .PHONY : CMakeFiles/LogisticsSystem.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LogisticsSystem.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:/code/LogisticsSystem/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start E:/code/LogisticsSystem/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/LogisticsSystem.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:/code/LogisticsSystem/build/CMakeFiles 0
 .PHONY : CMakeFiles/LogisticsSystem.dir/rule
@@ -102,7 +102,7 @@ LogisticsSystem: CMakeFiles/LogisticsSystem.dir/rule
 # codegen rule for target.
 CMakeFiles/LogisticsSystem.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target LogisticsSystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target LogisticsSystem"
 .PHONY : CMakeFiles/LogisticsSystem.dir/codegen
 
 # clean rule for target.

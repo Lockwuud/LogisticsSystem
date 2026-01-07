@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj.d"
   "CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj"
   "CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj.d"
+  "CMakeFiles/LogisticsSystem.dir/src/SQLParser.cpp.obj"
+  "CMakeFiles/LogisticsSystem.dir/src/SQLParser.cpp.obj.d"
   "CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj"
   "CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj.d"
   "CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj"

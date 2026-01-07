@@ -3,6 +3,7 @@
 #include "Utils.h"
 #include "Dijkstra.h"
 #include "DBManager.h"
+#include "SQLParser.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -84,11 +85,17 @@ void WebGui::handleClient(int clientSocket) {
     else if (path == "/api/goods") { responseContent = handleApiGoods(params); contentType = "application/json"; }
     else if (path == "/api/ship") { responseContent = handleApiShip(params); contentType = "application/json"; }
     else if (path == "/api/path") { responseContent = handleApiPath(params); contentType = "application/json"; }
-    // 实验二路由 (新增)
+    // 实验二路由
     else if (path == "/api/db/list") { responseContent = handleApiDbList(); contentType = "application/json"; }
     else if (path == "/api/db/create") { responseContent = handleApiDbCreate(params); contentType = "application/json"; }
     else if (path == "/api/db/insert") { responseContent = handleApiDbInsert(params); contentType = "application/json"; }
     else if (path == "/api/db/query") { responseContent = handleApiDbQuery(params); contentType = "application/json"; }
+    // 实验三路由
+    else if (path == "/api/sql/execute") {
+        std::string sql = params.count("q") ? params.at("q") : "";
+        responseContent = SQLParser::execute(sql);
+        contentType = "application/json";
+    }
     
     sendResponse(clientSocket, responseContent, contentType);
 }

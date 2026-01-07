@@ -20,6 +20,15 @@ public:
     // 获取所有表名
     static std::vector<std::string> getAllTables();
 
+    // 列名查找
+    static int getColumnIndex(const std::string& tableName, const std::string& colName);
+
+    // 删除记录 (DELETE FROM table WHERE col=val)
+    static bool deleteRecords(const std::string& tableName, const std::string& whereCol, const std::string& whereVal);
+
+    // 更新记录 (UPDATE table SET targetCol=newVal WHERE whereCol=whereVal)
+    static bool updateRecords(const std::string& tableName, const std::string& whereCol, const std::string& whereVal, const std::string& targetCol, const std::string& newVal);
+
 private:
     // 辅助：获取文件路径
     static std::string getFilePath(const std::string& tableName);

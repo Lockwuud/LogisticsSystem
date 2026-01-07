@@ -177,3 +177,195 @@ std::vector<std::string> DBManager::getAllTables() {
     }
     return tables;
 }
+
+// 在文件末尾添加:
+int DBManager::getColumnIndex(const std::string& tableName, const std::string& colName) {
+    if (colName == "*") return -1;
+    
+    std::string path = getFilePath(tableName);
+    HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE) return -2; // 表不存在
+
+    // 读锁
+    OVERLAPPED overlapped = {0};
+    if (!LockFileEx(hFile, 0, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
+        CloseHandle(hFile); return -2;
+    }
+
+    // 只读第一行(表头)
+    char buffer[1024];
+    DWORD bytesRead;
+    ReadFile(hFile, buffer, 1024, &bytesRead, NULL);
+    
+    // 解锁
+    UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
+    CloseHandle(hFile);
+
+    std::string content(buffer, bytesRead);
+    std::stringstream ss(content);
+    std::string headerLine;
+    std::getline(ss, headerLine);
+    if (!headerLine.empty() && headerLine.back() == '\r') headerLine.pop_back();
+
+    auto headers = Utils::split(headerLine, ',');
+    for (size_t i = 0; i < headers.size(); ++i) {
+        if (headers[i] == colName) return i;
+    }
+    return -2; // 没找到列
+}
+
+// [新增通用辅助函数] 重写文件内容（必须在已加锁的情况下调用）
+bool rewriteFile(HANDLE hFile, const std::vector<std::string>& lines) {
+    // 1. 移动文件指针到开头
+    SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
+    
+    // 2. 截断文件 (防止新内容比旧内容短时残留数据)
+    SetEndOfFile(hFile);
+
+    // 3. 写入新内容
+    for (size_t i = 0; i < lines.size(); ++i) {
+        std::string line = lines[i] + "\n";
+        DWORD bytesWritten;
+        if (!WriteFile(hFile, line.c_str(), line.size(), &bytesWritten, NULL)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool DBManager::deleteRecords(const std::string& tableName, const std::string& whereCol, const std::string& whereVal) {
+    std::string path = getFilePath(tableName);
+    // 必须用 GENERIC_READ | GENERIC_WRITE 才能进行读写和加锁
+    HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE) return false;
+
+    // 1. 申请独占锁 (互斥)
+    OVERLAPPED overlapped = {0};
+    if (!LockFileEx(hFile, LOCKFILE_EXCLUSIVE_LOCK, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
+        CloseHandle(hFile); return false;
+    }
+
+    // 2. 读取所有数据
+    DWORD fileSize = GetFileSize(hFile, NULL);
+    std::string fileContent;
+    if (fileSize > 0) {
+        std::vector<char> buffer(fileSize);
+        DWORD bytesRead;
+        ReadFile(hFile, buffer.data(), fileSize, &bytesRead, NULL);
+        fileContent.assign(buffer.data(), bytesRead);
+    }
+
+    // 3. 内存处理：保留不匹配的行 (即删除匹配的行)
+    std::vector<std::string> newLines;
+    std::stringstream ss(fileContent);
+    std::string line;
+    
+    // 3.1 处理表头
+    if (std::getline(ss, line)) {
+        if (!line.empty() && line.back() == '\r') line.pop_back();
+        newLines.push_back(line); // 表头永远保留
+        std::vector<std::string> headers = Utils::split(line, ',');
+        
+        int targetIdx = -1;
+        for(size_t i=0; i<headers.size(); ++i) if(headers[i] == whereCol) targetIdx = i;
+
+        // 3.2 遍历数据行
+        while (std::getline(ss, line)) {
+            if (line.empty()) continue;
+            if (line.back() == '\r') line.pop_back();
+            
+            bool shouldDelete = false;
+            std::vector<std::string> cols = Utils::split(line, ',');
+            
+            // 检查条件
+            if (targetIdx != -1 && targetIdx < cols.size()) {
+                if (cols[targetIdx] == whereVal) shouldDelete = true;
+            } else if (whereCol.empty()) {
+                // 如果没有 WHERE 条件，全删？(通常 DELETE FROM table 清空表)
+                shouldDelete = true; 
+            }
+
+            if (!shouldDelete) {
+                newLines.push_back(line);
+            }
+        }
+    }
+
+    // 4. 重写文件
+    bool success = rewriteFile(hFile, newLines);
+
+    // 5. 解锁
+    UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
+    CloseHandle(hFile);
+    return success;
+}
+
+bool DBManager::updateRecords(const std::string& tableName, const std::string& whereCol, const std::string& whereVal, 
+                              const std::string& targetCol, const std::string& newVal) {
+    std::string path = getFilePath(tableName);
+    HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE) return false;
+
+    OVERLAPPED overlapped = {0};
+    if (!LockFileEx(hFile, LOCKFILE_EXCLUSIVE_LOCK, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
+        CloseHandle(hFile); return false;
+    }
+
+    DWORD fileSize = GetFileSize(hFile, NULL);
+    std::string fileContent;
+    if (fileSize > 0) {
+        std::vector<char> buffer(fileSize);
+        DWORD bytesRead;
+        ReadFile(hFile, buffer.data(), fileSize, &bytesRead, NULL);
+        fileContent.assign(buffer.data(), bytesRead);
+    }
+
+    std::vector<std::string> newLines;
+    std::stringstream ss(fileContent);
+    std::string line;
+
+    if (std::getline(ss, line)) {
+        if (!line.empty() && line.back() == '\r') line.pop_back();
+        newLines.push_back(line);
+        std::vector<std::string> headers = Utils::split(line, ',');
+        
+        int whereIdx = -1;
+        int setIdx = -1;
+        for(size_t i=0; i<headers.size(); ++i) {
+            if(headers[i] == whereCol) whereIdx = i;
+            if(headers[i] == targetCol) setIdx = i;
+        }
+
+        while (std::getline(ss, line)) {
+            if (line.empty()) continue;
+            if (line.back() == '\r') line.pop_back();
+            
+            std::vector<std::string> cols = Utils::split(line, ',');
+            bool match = false;
+
+            if (whereIdx != -1 && whereIdx < cols.size()) {
+                if (cols[whereIdx] == whereVal) match = true;
+            } else if (whereCol.empty()) {
+                match = true; // 无条件全更新
+            }
+
+            if (match && setIdx != -1 && setIdx < cols.size()) {
+                cols[setIdx] = newVal; // 更新值
+                // 重组 CSV 行
+                std::string newLine = "";
+                for(size_t i=0; i<cols.size(); ++i) {
+                    newLine += cols[i];
+                    if(i < cols.size()-1) newLine += ",";
+                }
+                newLines.push_back(newLine);
+            } else {
+                newLines.push_back(line);
+            }
+        }
+    }
+
+    bool success = rewriteFile(hFile, newLines);
+    UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
+    CloseHandle(hFile);
+    return success;
+}

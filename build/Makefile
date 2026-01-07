@@ -225,6 +225,30 @@ src/Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/SQLParser.obj: src/SQLParser.cpp.obj
+.PHONY : src/SQLParser.obj
+
+# target to build an object file
+src/SQLParser.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/src/SQLParser.cpp.obj
+.PHONY : src/SQLParser.cpp.obj
+
+src/SQLParser.i: src/SQLParser.cpp.i
+.PHONY : src/SQLParser.i
+
+# target to preprocess a source file
+src/SQLParser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/src/SQLParser.cpp.i
+.PHONY : src/SQLParser.cpp.i
+
+src/SQLParser.s: src/SQLParser.cpp.s
+.PHONY : src/SQLParser.s
+
+# target to generate assembly for a file
+src/SQLParser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/src/SQLParser.cpp.s
+.PHONY : src/SQLParser.cpp.s
+
 src/Utils.obj: src/Utils.cpp.obj
 .PHONY : src/Utils.obj
 
@@ -294,6 +318,9 @@ help:
 	@echo "... src/Main.obj"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
+	@echo "... src/SQLParser.obj"
+	@echo "... src/SQLParser.i"
+	@echo "... src/SQLParser.s"
 	@echo "... src/Utils.obj"
 	@echo "... src/Utils.i"
 	@echo "... src/Utils.s"

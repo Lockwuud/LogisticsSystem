@@ -171,6 +171,7 @@ CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/parse_numbers.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/std_mutex.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/unique_lock.h \
+ E:/code/LogisticsSystem/include/SQLParser.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/fstream \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/codecvt.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/x86_64-w64-mingw32/bits/basic_file.h \
