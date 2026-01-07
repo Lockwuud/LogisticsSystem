@@ -72,11 +72,26 @@ include CMakeFiles/LogisticsSystem.dir/flags.make
 CMakeFiles/LogisticsSystem.dir/codegen:
 .PHONY : CMakeFiles/LogisticsSystem.dir/codegen
 
+CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj: CMakeFiles/LogisticsSystem.dir/flags.make
+CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj: CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp
+CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj: E:/code/LogisticsSystem/src/DBManager.cpp
+CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj: CMakeFiles/LogisticsSystem.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj"
+	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj -MF CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj.d -o CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj -c E:/code/LogisticsSystem/src/DBManager.cpp
+
+CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.i"
+	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:/code/LogisticsSystem/src/DBManager.cpp > CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.i
+
+CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.s"
+	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:/code/LogisticsSystem/src/DBManager.cpp -o CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.s
+
 CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj: CMakeFiles/LogisticsSystem.dir/flags.make
 CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj: CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp
 CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj: E:/code/LogisticsSystem/src/Dijkstra.cpp
 CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj: CMakeFiles/LogisticsSystem.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj"
 	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj -MF CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj.d -o CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj -c E:/code/LogisticsSystem/src/Dijkstra.cpp
 
 CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.i: cmake_force
@@ -91,7 +106,7 @@ CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj: CMakeFiles/LogisticsSystem.dir
 CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj: CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp
 CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj: E:/code/LogisticsSystem/src/Goods.cpp
 CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj: CMakeFiles/LogisticsSystem.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj"
 	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj -MF CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj.d -o CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj -c E:/code/LogisticsSystem/src/Goods.cpp
 
 CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.i: cmake_force
@@ -106,7 +121,7 @@ CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj: CMakeFiles/LogisticsSystem.dir/
 CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj: CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp
 CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj: E:/code/LogisticsSystem/src/Main.cpp
 CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj: CMakeFiles/LogisticsSystem.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj"
 	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj -MF CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj.d -o CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj -c E:/code/LogisticsSystem/src/Main.cpp
 
 CMakeFiles/LogisticsSystem.dir/src/Main.cpp.i: cmake_force
@@ -121,7 +136,7 @@ CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj: CMakeFiles/LogisticsSystem.dir
 CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj: CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp
 CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj: E:/code/LogisticsSystem/src/Utils.cpp
 CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj: CMakeFiles/LogisticsSystem.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj"
 	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj -MF CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj.d -o CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.obj -c E:/code/LogisticsSystem/src/Utils.cpp
 
 CMakeFiles/LogisticsSystem.dir/src/Utils.cpp.i: cmake_force
@@ -136,7 +151,7 @@ CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: CMakeFiles/LogisticsSystem.di
 CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp
 CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: E:/code/LogisticsSystem/src/WebGui.cpp
 CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: CMakeFiles/LogisticsSystem.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj"
 	E:/Scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj -MF CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj.d -o CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj -c E:/code/LogisticsSystem/src/WebGui.cpp
 
 CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.i: cmake_force
@@ -149,6 +164,7 @@ CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.s: cmake_force
 
 # Object files for target LogisticsSystem
 LogisticsSystem_OBJECTS = \
+"CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj" \
 "CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj" \
 "CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj" \
 "CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj" \
@@ -158,6 +174,7 @@ LogisticsSystem_OBJECTS = \
 # External object files for target LogisticsSystem
 LogisticsSystem_EXTERNAL_OBJECTS =
 
+LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj
 LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj
 LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj
 LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj
@@ -166,7 +183,7 @@ LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj
 LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/build.make
 LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/linkLibs.rsp
 LogisticsSystem.exe: CMakeFiles/LogisticsSystem.dir/objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable LogisticsSystem.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:/code/LogisticsSystem/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable LogisticsSystem.exe"
 	E:/Scoop/apps/cmake/current/bin/cmake.exe -E rm -f CMakeFiles/LogisticsSystem.dir/objects.a
 	E:/Scoop/apps/gcc/current/bin/ar.exe qc CMakeFiles/LogisticsSystem.dir/objects.a @CMakeFiles/LogisticsSystem.dir/objects1.rsp
 	E:/Scoop/apps/gcc/current/bin/g++.exe -g -Wl,--whole-archive CMakeFiles/LogisticsSystem.dir/objects.a -Wl,--no-whole-archive -o LogisticsSystem.exe -Wl,--out-implib,libLogisticsSystem.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/LogisticsSystem.dir/linkLibs.rsp

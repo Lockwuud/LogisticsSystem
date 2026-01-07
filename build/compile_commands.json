@@ -1,6 +1,12 @@
 [
 {
   "directory": "E:/code/LogisticsSystem/build",
+  "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj -c E:/code/LogisticsSystem/src/DBManager.cpp",
+  "file": "E:/code/LogisticsSystem/src/DBManager.cpp",
+  "output": "CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj"
+},
+{
+  "directory": "E:/code/LogisticsSystem/build",
   "command": "E:/Scoop/apps/gcc/current/bin/g++.exe  @CMakeFiles/LogisticsSystem.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj -c E:/code/LogisticsSystem/src/Dijkstra.cpp",
   "file": "E:/code/LogisticsSystem/src/Dijkstra.cpp",
   "output": "CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj"

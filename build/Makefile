@@ -129,6 +129,30 @@ LogisticsSystem/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/build
 .PHONY : LogisticsSystem/fast
 
+src/DBManager.obj: src/DBManager.cpp.obj
+.PHONY : src/DBManager.obj
+
+# target to build an object file
+src/DBManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj
+.PHONY : src/DBManager.cpp.obj
+
+src/DBManager.i: src/DBManager.cpp.i
+.PHONY : src/DBManager.i
+
+# target to preprocess a source file
+src/DBManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.i
+.PHONY : src/DBManager.cpp.i
+
+src/DBManager.s: src/DBManager.cpp.s
+.PHONY : src/DBManager.s
+
+# target to generate assembly for a file
+src/DBManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LogisticsSystem.dir/build.make CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.s
+.PHONY : src/DBManager.cpp.s
+
 src/Dijkstra.obj: src/Dijkstra.cpp.obj
 .PHONY : src/Dijkstra.obj
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LogisticsSystem"
+	@echo "... src/DBManager.obj"
+	@echo "... src/DBManager.i"
+	@echo "... src/DBManager.s"
 	@echo "... src/Dijkstra.obj"
 	@echo "... src/Dijkstra.i"
 	@echo "... src/Dijkstra.s"

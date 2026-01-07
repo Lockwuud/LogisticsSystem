@@ -2,6 +2,7 @@
 #include "GlobalData.h"
 #include "Utils.h"
 #include "Dijkstra.h"
+#include "DBManager.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -9,7 +10,6 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-// 简单的备用 HTML，防止找不到 index.html 时一片空白
 const std::string FALLBACK_HTML = R"(
 <!DOCTYPE html><html><body><h1>请在同级目录下创建 index.html 文件以加载完整界面。</h1></body></html>
 )";
@@ -70,40 +70,25 @@ void WebGui::handleClient(int clientSocket) {
     std::string responseContent;
     std::string contentType = "text/html; charset=utf-8";
 
+    // 路由分发
     if (path == "/") {
         std::ifstream f("index.html");
+        if (!f.is_open()) f.open("../src/index.html");
         if (f.is_open()) {
-            std::stringstream buffer;
-            buffer << f.rdbuf();
+            std::stringstream buffer; buffer << f.rdbuf();
             responseContent = buffer.str();
-        } else {
-            // 尝试去上级目录或 src 找
-            std::ifstream fSrc("../src/index.html"); 
-            if(fSrc.is_open()){
-                std::stringstream buffer;
-                buffer << fSrc.rdbuf();
-                responseContent = buffer.str();
-            } else {
-                responseContent = FALLBACK_HTML;
-            }
-        }
+        } else responseContent = FALLBACK_HTML;
     } 
-    else if (path == "/api/regions") {
-        responseContent = handleApiRegions();
-        contentType = "application/json";
-    }
-    else if (path == "/api/goods") {
-        responseContent = handleApiGoods(params);
-        contentType = "application/json";
-    }
-    else if (path == "/api/ship") {
-        responseContent = handleApiShip(params);
-        contentType = "application/json";
-    }
-    else if (path == "/api/path") {
-        responseContent = handleApiPath(params);
-        contentType = "application/json";
-    }
+    // 实验一路由
+    else if (path == "/api/regions") { responseContent = handleApiRegions(); contentType = "application/json"; }
+    else if (path == "/api/goods") { responseContent = handleApiGoods(params); contentType = "application/json"; }
+    else if (path == "/api/ship") { responseContent = handleApiShip(params); contentType = "application/json"; }
+    else if (path == "/api/path") { responseContent = handleApiPath(params); contentType = "application/json"; }
+    // 实验二路由 (新增)
+    else if (path == "/api/db/list") { responseContent = handleApiDbList(); contentType = "application/json"; }
+    else if (path == "/api/db/create") { responseContent = handleApiDbCreate(params); contentType = "application/json"; }
+    else if (path == "/api/db/insert") { responseContent = handleApiDbInsert(params); contentType = "application/json"; }
+    else if (path == "/api/db/query") { responseContent = handleApiDbQuery(params); contentType = "application/json"; }
     
     sendResponse(clientSocket, responseContent, contentType);
 }
@@ -205,6 +190,46 @@ std::string WebGui::handleApiPath(const std::map<std::string, std::string>& para
     }
 
     return "{\"result\":\"" + escaped + "\"}";
+}
+
+// --- 实验二新增实现 ---
+
+std::string WebGui::handleApiDbList() {
+    auto tables = DBManager::getAllTables();
+    std::string json = "[";
+    for(size_t i=0; i<tables.size(); ++i) {
+        json += "\"" + tables[i] + "\"";
+        if(i < tables.size()-1) json += ",";
+    }
+    json += "]";
+    return json;
+}
+
+std::string WebGui::handleApiDbCreate(const std::map<std::string, std::string>& params) {
+    if(params.count("name") && params.count("cols")) {
+        std::string name = params.at("name");
+        std::string colsStr = params.at("cols");
+        auto headers = Utils::split(colsStr, ',');
+        bool success = DBManager::createTable(name, headers);
+        return success ? "{\"success\":true}" : "{\"success\":false}";
+    }
+    return "{\"success\":false}";
+}
+
+std::string WebGui::handleApiDbInsert(const std::map<std::string, std::string>& params) {
+    if(params.count("table") && params.count("data")) {
+        std::string table = params.at("table");
+        std::string data = params.at("data");
+        bool success = DBManager::insertRecord(table, data);
+        return success ? "{\"success\":true}" : "{\"success\":false}";
+    }
+    return "{\"success\":false}";
+}
+
+std::string WebGui::handleApiDbQuery(const std::map<std::string, std::string>& params) {
+    std::string table = params.count("table") ? params.at("table") : "";
+    std::string key = params.count("key") ? params.at("key") : "";
+    return DBManager::query(table, key);
 }
 
 std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) {

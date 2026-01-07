@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj"
+  "CMakeFiles/LogisticsSystem.dir/src/DBManager.cpp.obj.d"
   "CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj"
   "CMakeFiles/LogisticsSystem.dir/src/Dijkstra.cpp.obj.d"
   "CMakeFiles/LogisticsSystem.dir/src/Goods.cpp.obj"

@@ -159,6 +159,18 @@ CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/istream.tcc \
  E:/code/LogisticsSystem/include/Utils.h \
  E:/code/LogisticsSystem/include/Dijkstra.h \
+ E:/code/LogisticsSystem/include/DBManager.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/mutex \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/chrono.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/ratio \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/cstdint \
+ E:/Scoop/apps/gcc/13.2.0/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdint.h \
+ E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include/stdint.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/limits \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/ctime \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/parse_numbers.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/std_mutex.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/unique_lock.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/fstream \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/codecvt.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/x86_64-w64-mingw32/bits/basic_file.h \

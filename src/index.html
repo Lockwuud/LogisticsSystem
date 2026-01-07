@@ -3,209 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智慧物流管理系统</title>
+    <title>智慧物流管理系统 - 综合版</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f8f9fa; padding-top: 20px; }
         .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .header-title { color: #0d6efd; font-weight: bold; }
-        #pathResult { white-space: pre-wrap; background: #212529; color: #fff; padding: 10px; border-radius: 5px; }
+        .nav-tabs .nav-link.active { background-color: #e9ecef; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="text-center mb-4">
-        <h1 class="header-title">📦 智慧物流管理系统</h1>
-        <p class="text-muted">Web 端控制台</p>
+        <h1 class="text-primary fw-bold">📦 智慧物流管理系统</h1>
+        <p class="text-muted">集成实验一 & 实验二</p>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="row g-3">
-                <div class="col-md-4">
-                    <label class="form-label">当前地区</label>
-                    <select id="regionSelect" class="form-select" onchange="loadGoods()">
-                        </select>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">物流方案</label>
-                    <select id="schemeSelect" class="form-select" onchange="loadGoods()">
-                        <option value="1">方案1: 价格最小</option>
-                        <option value="2">方案2: 时间最短</option>
-                        <option value="3">方案3: 综合最优</option>
-                        <option value="4">方案4: 航空物流</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label class="form-label">操作</label>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary" onclick="loadGoods()">🔄 刷新货物列表</button>
+    <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" id="exp1-tab" data-bs-toggle="tab" data-bs-target="#exp1">实验一：物流计算</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="exp2-tab" data-bs-toggle="tab" data-bs-target="#exp2">实验二：数据管理(文件锁)</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="exp1" role="tabpanel">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">当前地区</label>
+                            <select id="regionSelect" class="form-select" onchange="loadGoods()"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">物流方案</label>
+                            <select id="schemeSelect" class="form-select" onchange="loadGoods()">
+                                <option value="1">方案1: 价格最小</option>
+                                <option value="2">方案2: 时间最短</option>
+                                <option value="3">方案3: 综合最优</option>
+                                <option value="4">方案4: 航空物流</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">操作</label>
+                            <div class="d-grid gap-2"><button class="btn btn-primary" onclick="loadGoods()">🔄 刷新</button></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-8">
             <div class="card">
-                <div class="card-header bg-white">
-                    <h5 class="mb-0">📋 货物清单 (按优先级排序)</h5>
-                </div>
                 <div class="card-body p-0">
-                    <table class="table table-striped table-hover mb-0">
-                        <thead class="table-light">
-                            <tr>
-                                <th>ID</th>
-                                <th>名称</th>
-                                <th>所属地</th> <th>发往地</th>
-                                <th>优先级</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody id="goodsTableBody">
-                            </tbody>
+                    <table class="table table-striped mb-0">
+                        <thead><tr><th>ID</th><th>名称</th><th>所属地</th><th>发往地</th><th>优先级</th><th>操作</th></tr></thead>
+                        <tbody id="goodsTableBody"></tbody>
                     </table>
                 </div>
             </div>
+             <div class="card mt-3">
+                <div class="card-body">
+                    <div class="input-group">
+                        <span class="input-group-text">发往地</span>
+                        <select id="targetRegionSelect" class="form-select"></select>
+                        <button class="btn btn-info" onclick="calculatePath()">计算路径</button>
+                    </div>
+                    <div id="pathResult" class="mt-2 p-2 bg-dark text-white rounded">等待计算...</div>
+                </div>
+            </div>
         </div>
 
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-header bg-white">
-                    <h5 class="mb-0">🛣️ 路径查询</h5>
-                </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label>选择发往地 (计算当前地区到目标的路径)</label>
-                        <select id="targetRegionSelect" class="form-select">
-                            </select>
+        <div class="tab-pane fade" id="exp2" role="tabpanel">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">📂 表管理</div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label>新建数据表</label>
+                                <div class="input-group mb-2">
+                                    <input type="text" id="newTableName" class="form-control" placeholder="表名(如user)">
+                                    <input type="text" id="newTableCols" class="form-control" placeholder="列名(如id,name,role)">
+                                </div>
+                                <button class="btn btn-sm btn-success w-100" onclick="createTable()">新建表</button>
+                            </div>
+                            <hr>
+                            <div class="mb-3">
+                                <label>选择操作表</label>
+                                <select id="dbTableSelect" class="form-select" onchange="loadTableData()">
+                                    <option value="">-- 请选择 --</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label>插入记录 (逗号分隔)</label>
+                                <input type="text" id="insertData" class="form-control" placeholder="对应列的值">
+                                <button class="btn btn-sm btn-warning w-100 mt-2" onclick="insertRecord()">写入 (互斥锁)</button>
+                            </div>
+                        </div>
                     </div>
-                    <button class="btn btn-info w-100 mb-3" onclick="calculatePath()">计算路径</button>
-                    <div id="pathResult" style="min-height: 100px; font-size: 0.9em;">等待计算...</div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>🔍 数据查询 (共享锁)</span>
+                            <div class="input-group w-50">
+                                <input type="text" id="searchKey" class="form-control form-control-sm" placeholder="关键字...">
+                                <button class="btn btn-sm btn-secondary" onclick="loadTableData()">查询</button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div id="tableContainer" style="overflow-x:auto;">
+                                <p class="text-center p-3 text-muted">请选择表进行查看</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
-        await loadRegions();
-        loadGoods();
+        // 加载实验一数据
+        await loadRegions(); loadGoods();
+        // 加载实验二数据
+        loadTableList(); 
     });
-
+    
+    // --- 实验一函数 ---
     async function loadRegions() {
         const res = await fetch('/api/regions');
         const regions = await res.json();
-        
         const rSelect = document.getElementById('regionSelect');
         const tSelect = document.getElementById('targetRegionSelect');
-        
-        rSelect.innerHTML = '';
+        rSelect.innerHTML = '<option value="ALL">== 查看全部地区 ==</option>';
         tSelect.innerHTML = '';
-        
-        // [新增] 添加 "所有地区" 选项
-        let optAll = document.createElement('option');
-        optAll.value = "ALL";
-        optAll.text = "== 查看全部地区 ==";
-        rSelect.add(optAll);
-
-        regions.forEach((r, index) => {
-            let opt = document.createElement('option');
-            opt.value = r;
-            opt.text = r;
-            rSelect.add(opt);
-
-            let opt2 = document.createElement('option');
-            opt2.value = r;
-            opt2.text = r;
-            tSelect.add(opt2);
+        regions.forEach(r => {
+            rSelect.add(new Option(r, r));
+            tSelect.add(new Option(r, r));
         });
     }
-
     async function loadGoods() {
-        const region = document.getElementById('regionSelect').value;
-        const scheme = document.getElementById('schemeSelect').value;
-        // 如果是 ALL，我们就不检查 region 是否为空了
-        if(!region) return;
-
-        const res = await fetch(`/api/goods?region=${encodeURIComponent(region)}&scheme=${scheme}`);
+        const r = document.getElementById('regionSelect').value;
+        const s = document.getElementById('schemeSelect').value;
+        const res = await fetch(`/api/goods?region=${encodeURIComponent(r)}&scheme=${s}`);
         const goods = await res.json();
-
-        const tbody = document.getElementById('goodsTableBody');
-        tbody.innerHTML = '';
-
-        if(goods.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="6" class="text-center">该选项下暂无货物</td></tr>';
-            return;
-        }
-
-        goods.forEach(g => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${g.id}</td>
-                <td>${g.name}</td>
-                <td><span class="badge bg-secondary">${g.belongingArea}</span></td> <td>${g.sendingArea}</td>
-                <td>${g.priority}</td>
-                <td>
-                    <button class="btn btn-sm btn-success" onclick="shipGoods(${g.id}, '${g.sendingArea}')">发货</button>
-                    <button class="btn btn-sm btn-outline-info" onclick="checkPathTo('${g.belongingArea}', '${g.sendingArea}')">查路径</button>
-                </td>
-            `;
-            tbody.appendChild(tr);
-        });
+        document.getElementById('goodsTableBody').innerHTML = goods.map(g => `<tr><td>${g.id}</td><td>${g.name}</td><td>${g.belongingArea}</td><td>${g.sendingArea}</td><td>${g.priority}</td><td><button class="btn btn-sm btn-success" onclick="shipGoods(${g.id})">发货</button></td></tr>`).join('');
+    }
+    async function shipGoods(id) { fetch(`/api/ship?id=${id}&scheme=${document.getElementById('schemeSelect').value}`).then(()=>loadGoods()); }
+    async function calculatePath() { 
+        const s = document.getElementById('regionSelect').value; 
+        const e = document.getElementById('targetRegionSelect').value;
+        const res = await fetch(`/api/path?start=${s}&end=${e}&scheme=${document.getElementById('schemeSelect').value}`);
+        const d = await res.json();
+        document.getElementById('pathResult').innerText = d.result;
     }
 
-    async function shipGoods(id, target) {
-        if(!confirm(`确认发货 ID:${id} 到 ${target}?`)) return;
-        
-        const scheme = document.getElementById('schemeSelect').value;
-        const res = await fetch(`/api/ship?id=${id}&scheme=${scheme}`);
-        const result = await res.json();
-        
-        if(result.success) {
-            alert('发货成功！');
-            loadGoods();
-        } else {
-            alert('发货失败');
-        }
+    // --- 实验二函数 ---
+    async function loadTableList() {
+        const res = await fetch('/api/db/list');
+        const tables = await res.json();
+        const sel = document.getElementById('dbTableSelect');
+        sel.innerHTML = '<option value="">-- 请选择 --</option>';
+        tables.forEach(t => sel.add(new Option(t, t)));
     }
-
-    // 修改：支持传入起点，因为现在可能是“全部显示”模式，起点不一定是下拉框选中的
-    async function checkPathTo(start, end) {
-        // 更新下拉框UI，让用户知道当前的关注点
-        const rSelect = document.getElementById('regionSelect');
-        const tSelect = document.getElementById('targetRegionSelect');
-        
-        // 如果当前是 ALL 模式，临时在路径计算里不改变下拉框，直接算
-        // 如果不是 ALL 模式，可以更新UI
-        if(rSelect.value !== 'ALL') {
-            rSelect.value = start;
-        }
-        tSelect.value = end;
-        
-        calculatePath(start, end);
+    async function createTable() {
+        const name = document.getElementById('newTableName').value;
+        const cols = document.getElementById('newTableCols').value;
+        if(!name || !cols) return alert("请输入表名和列名");
+        const res = await fetch(`/api/db/create?name=${name}&cols=${cols}`);
+        const d = await res.json();
+        if(d.success) { alert('创建成功'); loadTableList(); } else alert('创建失败，可能表已存在');
     }
-
-    async function calculatePath(forceStart = null, forceEnd = null) {
-        // 优先使用传入的参数，否则使用下拉框的值
-        let start = forceStart || document.getElementById('regionSelect').value;
-        let end = forceEnd || document.getElementById('targetRegionSelect').value;
-        const scheme = document.getElementById('schemeSelect').value;
-
-        if (start === 'ALL') {
-            document.getElementById('pathResult').innerText = "请先选择一个具体的起始地区来计算路径，或者点击列表中的'查路径'按钮。";
-            return;
-        }
-
-        document.getElementById('pathResult').innerText = "计算中...";
-
-        const res = await fetch(`/api/path?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}&scheme=${scheme}`);
-        const data = await res.json();
-        
-        document.getElementById('pathResult').innerText = data.result;
+    async function insertRecord() {
+        const table = document.getElementById('dbTableSelect').value;
+        const data = document.getElementById('insertData').value;
+        if(!table || !data) return alert("请选择表并输入数据");
+        const res = await fetch(`/api/db/insert?table=${table}&data=${encodeURIComponent(data)}`);
+        const d = await res.json();
+        if(d.success) { alert('写入成功'); loadTableData(); } else alert('写入失败 (可能被锁阻塞)');
+    }
+    async function loadTableData() {
+        const table = document.getElementById('dbTableSelect').value;
+        const key = document.getElementById('searchKey').value;
+        if(!table) return;
+        const res = await fetch(`/api/db/query?table=${table}&key=${encodeURIComponent(key)}`);
+        const rows = await res.json();
+        const container = document.getElementById('tableContainer');
+        if(rows.length === 0) { container.innerHTML = '<p class="text-center p-3">无数据</p>'; return; }
+        const cols = Object.keys(rows[0]);
+        let html = '<table class="table table-bordered table-sm mb-0"><thead><tr>';
+        cols.forEach(c => html += `<th>${c}</th>`);
+        html += '</tr></thead><tbody>';
+        rows.forEach(r => { html += '<tr>'; cols.forEach(c => html += `<td>${r[c]}</td>`); html += '</tr>'; });
+        html += '</tbody></table>';
+        container.innerHTML = html;
     }
 </script>
 </body>
