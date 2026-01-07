@@ -8,6 +8,7 @@
 class WebGui {
 public:
     void start();
+    void init();
 
 private:
     void handleClient(int clientSocket);
@@ -24,10 +25,16 @@ private:
     std::string handleApiDbInsert(const std::map<std::string, std::string>& params); 
     std::string handleApiDbQuery(const std::map<std::string, std::string>& params);
 
+    // --- 实验四 API ---
+    std::string handleApiReload(); // 重载数据
+    std::string handleApiStatus(const std::map<std::string, std::string>& params); // 物流状态查询
+
     // 辅助
     std::map<std::string, std::string> parseQuery(const std::string& query);
     std::vector<std::vector<int>> getGraphForScheme(int schemeId);
     void sendResponse(int socket, const std::string& content, const std::string& contentType);
+
+    void loadDataInternal();
 };
 
 #endif

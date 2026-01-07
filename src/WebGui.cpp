@@ -4,16 +4,86 @@
 #include "Dijkstra.h"
 #include "DBManager.h"
 #include "SQLParser.h"
+#include "Goods.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <algorithm>
 #include <winsock2.h>
 #include <ws2tcpip.h>
+#include <set>
 
 const std::string FALLBACK_HTML = R"(
 <!DOCTYPE html><html><body><h1>请在同级目录下创建 index.html 文件以加载完整界面。</h1></body></html>
 )";
+
+void WebGui::init() {
+    std::cout << "初始化系统数据..." << std::endl;
+    loadDataInternal();
+}
+
+// 修复矩阵 CSV 的表头
+void fixMatrixHeader(const std::string& filename) {
+    std::ifstream in(filename);
+    if (!in.is_open()) return;
+    std::string line;
+    std::getline(in, line);
+    std::vector<std::string> lines;
+    lines.push_back(line);
+    while (std::getline(in, line)) lines.push_back(line);
+    in.close();
+
+    // 如果第一行以逗号开头，说明缺少首列名
+    if (!lines.empty() && !lines[0].empty() && lines[0][0] == ',') {
+        lines[0] = "StartNode" + lines[0]; // 补全列名
+        std::ofstream out(filename);
+        for (const auto& l : lines) out << l << "\n";
+        out.close();
+        std::cout << "已自动修复矩阵表头: " << filename << std::endl;
+    }
+}
+
+// 将数据读取逻辑封装，以便 SQL 修改后重载
+void WebGui::loadDataInternal() {
+    // 1. 修复三个矩阵文件的表头，以便 SQL 可以操作它们
+    fixMatrixHeader("../data/regionPrice.csv");
+    fixMatrixHeader("../data/regionDistance.csv");
+    fixMatrixHeader("../data/regionAir.csv");
+
+    // ... (以下是原有的读取 goodsInfo.csv 的逻辑，保持不变) ...
+    for(int i=0; i<5; ++i) logisticsTree[i].goodsList.clear();
+    belongingRegionList.clear();
+    std::ifstream file("../data/goodsInfo.csv");
+    // ... (继续保留原有的 while 循环读取逻辑) ...
+    // ... (原代码结束) ...
+    if (!file.is_open()) return;
+    std::string line;
+    std::set<std::string> regionSet;
+    std::getline(file, line); 
+    while (std::getline(file, line)) {
+        if (line.empty()) continue;
+        if (line.back() == '\r') line.pop_back();
+        std::vector<std::string> data = Utils::split(line, ',');
+        if (data.size() >= 7) {
+            try {
+                int id = std::stoi(data[0]);
+                std::string name = data[1];
+                std::string belonging = data[2];
+                std::string sending = data[3];
+                int type = std::stoi(data[4]);
+                int grade = std::stoi(data[5]);
+                std::string date = data[6];
+                Goods goods(id, name, belonging, sending, type, grade, date);
+                int targetScheme = (type >= 1 && type <= 4) ? type : 3;
+                logisticsTree[targetScheme].goodsList.push_back(goods);
+                regionSet.insert(belonging);
+                regionSet.insert(sending);
+            } catch (...) { continue; }
+        }
+    }
+    belongingRegionList.assign(regionSet.begin(), regionSet.end());
+    std::cout << "数据已重载，当前地区数: " << belongingRegionList.size() << std::endl;
+}
 
 void WebGui::start() {
     WSADATA wsaData;
@@ -96,6 +166,9 @@ void WebGui::handleClient(int clientSocket) {
         responseContent = SQLParser::execute(sql);
         contentType = "application/json";
     }
+    // 实验四
+    else if (path == "/api/reload") { responseContent = handleApiReload(); contentType = "application/json"; }
+    else if (path == "/api/status") { responseContent = handleApiStatus(params); contentType = "application/json"; }
     
     sendResponse(clientSocket, responseContent, contentType);
 }
@@ -248,6 +321,62 @@ std::string WebGui::handleApiDbQuery(const std::map<std::string, std::string>& p
     }
     
     return DBManager::query(table, key, colIdx);
+}
+
+std::string WebGui::handleApiReload() {
+    loadDataInternal();
+    return "{\"success\":true, \"msg\":\"系统数据已从文件重新加载\"}";
+}
+
+std::string WebGui::handleApiStatus(const std::map<std::string, std::string>& params) {
+    std::string keyword = params.count("q") ? params.at("q") : "";
+    if (keyword.empty()) return "{\"found\":false}";
+
+    Goods* target = nullptr;
+    int scheme = 3;
+
+    // 遍历所有方案寻找货物
+    for(int s=1; s<=4; ++s) {
+        for(auto& g : logisticsTree[s].goodsList) {
+            // 支持按ID或名称查询
+            if(g.name == keyword || std::to_string(g.id) == keyword) {
+                target = &g;
+                scheme = s;
+                break;
+            }
+        }
+        if(target) break;
+    }
+
+    if (!target) return "{\"found\":false, \"msg\":\"未找到该货物，可能已发货或不存在\"}";
+
+    // 动态计算路径 (Exp 6 requirement: 节点信息变化后，动态计算)
+    // 这里我们直接调用 Dijkstra，它会实时读取 csv 文件，所以只要 csv 变了，路径就算的最新的
+    int u = -1, v = -1;
+    auto it1 = std::find(belongingRegionList.begin(), belongingRegionList.end(), target->belongingArea);
+    auto it2 = std::find(belongingRegionList.begin(), belongingRegionList.end(), target->sendingArea);
+    if(it1 != belongingRegionList.end()) u = std::distance(belongingRegionList.begin(), it1);
+    if(it2 != belongingRegionList.end()) v = std::distance(belongingRegionList.begin(), it2);
+
+    std::string pathInfo = "无法计算路径";
+    if(u!=-1 && v!=-1) {
+        pathInfo = Dijkstra::minStep(getGraphForScheme(scheme), u, v, belongingRegionList);
+    }
+    
+    // 转义换行
+    std::string escapedPath;
+    for (char c : pathInfo) { if(c=='\n') escapedPath+="\\n"; else escapedPath+=c; }
+
+    std::string json = "{";
+    json += "\"found\":true,";
+    json += "\"id\":" + std::to_string(target->id) + ",";
+    json += "\"name\":\"" + target->name + "\",";
+    json += "\"status\":\"待发货\","; // 只要还在 list 里就是待发货
+    json += "\"scheme\":\"" + std::to_string(scheme) + "\",";
+    json += "\"priority\":\"" + Utils::formatDouble(target->priority) + "\",";
+    json += "\"currentPath\":\"" + escapedPath + "\"";
+    json += "}";
+    return json;
 }
 
 std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) {

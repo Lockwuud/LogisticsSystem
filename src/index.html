@@ -3,155 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智慧物流管理系统 - 综合版</title>
+    <title>智慧物流管理系统 - 旗舰版</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f8f9fa; padding-top: 20px; }
         .card { box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .nav-tabs .nav-link.active { background-color: #e9ecef; font-weight: bold; }
+        .nav-tabs .nav-link.active { background-color: #e9ecef; font-weight: bold; border-bottom: 3px solid #0d6efd; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="text-center mb-4">
-        <h1 class="text-primary fw-bold">📦 智慧物流管理系统</h1>
-        <p class="text-muted">集成实验一 & 实验二</p>
+        <h1 class="text-primary fw-bold">📦 互联网+ 智慧物流质询系统</h1>
+        <p class="text-muted">集成实验 1-4</p>
     </div>
 
     <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
         <li class="nav-item">
-            <button class="nav-link active" id="exp1-tab" data-bs-toggle="tab" data-bs-target="#exp1">实验一：物流计算</button>
+            <button class="nav-link active" id="exp4-tab" data-bs-toggle="tab" data-bs-target="#exp4">🚀 实验四：综合集成平台</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id="exp2-tab" data-bs-toggle="tab" data-bs-target="#exp2">实验二：数据管理(文件锁)</button>
+            <button class="nav-link" id="exp1-tab" data-bs-toggle="tab" data-bs-target="#exp1">实验一：物流计算</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id="exp3-tab" data-bs-toggle="tab" data-bs-target="#exp3">实验三：SQL解析器</button>
+            <button class="nav-link" id="exp2-tab" data-bs-toggle="tab" data-bs-target="#exp2">实验二：数据一致性</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="exp3-tab" data-bs-toggle="tab" data-bs-target="#exp3">实验三：SQL解析</button>
         </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="exp1" role="tabpanel">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <label class="form-label">当前地区</label>
-                            <select id="regionSelect" class="form-select" onchange="loadGoods()"></select>
+        
+        <div class="tab-pane fade show active" id="exp4" role="tabpanel">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white">⚙️ 核心数据管控</div>
+                        <div class="card-body">
+                            <p class="small text-muted">通过 SQL 直接修改底层数据(物品/节点)，影响物流计算结果。</p>
+    
+                            <div class="mb-2">
+                                <label class="form-label fw-bold small">常用节点操作 SQL 模板:</label><br>
+                                <button class="btn btn-xs btn-outline-secondary me-1" onclick="setSql('SELECT * FROM regionPrice;')">查看价格矩阵</button>
+                                <button class="btn btn-xs btn-outline-secondary me-1" onclick="setSql('UPDATE regionPrice SET Guangzhou=999 WHERE StartNode=Beijing;')">修改节点运费</button>
+                                <button class="btn btn-xs btn-outline-secondary" onclick="setSql('CREATE TABLE nodeInfo (id,name,type); INSERT INTO nodeInfo VALUES (1,Beijing,Hub);')">新建节点表</button>
+                            </div>
+
+                            <label>SQL 指令 (支持 INSERT, UPDATE, DELETE):</label>
+                            <textarea id="sysSqlInput" class="form-control mb-2" rows="3" placeholder="在此输入 SQL..."></textarea>
+                            
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-warning flex-grow-1" onclick="runSysSQL()">执行 SQL 并修改底层文件</button>
+                                <button class="btn btn-danger" onclick="reloadSystem()">🔄 重载系统内存</button>
+                            </div>
+                            <div id="sysSqlResult" class="mt-2 text-muted small"></div>
+                            
+                            <div id="sysSqlTable" class="mt-2 table-responsive"></div>
                         </div>
-                        <div class="col-md-4">
-                            <label class="form-label">物流方案</label>
-                            <select id="schemeSelect" class="form-select" onchange="loadGoods()">
-                                <option value="1">方案1: 价格最小</option>
-                                <option value="2">方案2: 时间最短</option>
-                                <option value="3">方案3: 综合最优</option>
-                                <option value="4">方案4: 航空物流</option>
-                            </select>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">📊 物流状态查询 (Trace)</div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <input type="text" id="traceInput" class="form-control" placeholder="输入货物 ID 或 名称">
+                                <button class="btn btn-info" onclick="traceGoods()">🔍 质询</button>
+                            </div>
+                            <div id="traceResult">
+                                <div class="alert alert-secondary text-center">请输入查询条件</div>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <label class="form-label">操作</label>
-                            <div class="d-grid gap-2"><button class="btn btn-primary" onclick="loadGoods()">🔄 刷新</button></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-success text-white">📡 实时物流监控</div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5>当前货物列表</h5>
+                                <button class="btn btn-sm btn-outline-success" onclick="loadMonitor()">刷新监控</button>
+                            </div>
+                            <div class="table-responsive" style="max-height: 400px;">
+                                <table class="table table-sm table-hover">
+                                    <thead><tr><th>ID</th><th>名称</th><th>方案</th><th>优先级</th></tr></thead>
+                                    <tbody id="monitorBody"></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body p-0">
-                    <table class="table table-striped mb-0">
-                        <thead><tr><th>ID</th><th>名称</th><th>所属地</th><th>发往地</th><th>优先级</th><th>操作</th></tr></thead>
-                        <tbody id="goodsTableBody"></tbody>
-                    </table>
-                </div>
-            </div>
-             <div class="card mt-3">
-                <div class="card-body">
-                    <div class="input-group">
-                        <span class="input-group-text">发往地</span>
-                        <select id="targetRegionSelect" class="form-select"></select>
-                        <button class="btn btn-info" onclick="calculatePath()">计算路径</button>
-                    </div>
-                    <div id="pathResult" class="mt-2 p-2 bg-dark text-white rounded">等待计算...</div>
-                </div>
-            </div>
+        </div>
+
+        <div class="tab-pane fade" id="exp1" role="tabpanel">
+            <div class="card"><div class="card-body"><div class="row g-3">
+                <div class="col-md-4"><label>当前地区</label><select id="regionSelect" class="form-select" onchange="loadGoods()"></select></div>
+                <div class="col-md-4"><label>物流方案</label><select id="schemeSelect" class="form-select" onchange="loadGoods()">
+                    <option value="1">方案1: 价格最小</option><option value="2">方案2: 时间最短</option><option value="3">方案3: 综合最优</option><option value="4">方案4: 航空物流</option>
+                </select></div>
+                <div class="col-md-4"><label>操作</label><div class="d-grid"><button class="btn btn-primary" onclick="loadGoods()">🔄 刷新</button></div></div>
+            </div></div></div>
+            <div class="card"><div class="card-body p-0"><table class="table table-striped mb-0">
+                <thead><tr><th>ID</th><th>名称</th><th>所属地</th><th>发往地</th><th>优先级</th><th>操作</th></tr></thead><tbody id="goodsTableBody"></tbody>
+            </table></div></div>
+             <div class="card mt-3"><div class="card-body"><div class="input-group">
+                <span class="input-group-text">发往地</span><select id="targetRegionSelect" class="form-select"></select><button class="btn btn-info" onclick="calculatePath()">计算路径</button>
+            </div><div id="pathResult" class="mt-2 p-2 bg-dark text-white rounded">等待计算...</div></div></div>
         </div>
 
         <div class="tab-pane fade" id="exp2" role="tabpanel">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">📂 表管理</div>
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label>新建数据表</label>
-                                <div class="input-group mb-2">
-                                    <input type="text" id="newTableName" class="form-control" placeholder="表名(如user)">
-                                    <input type="text" id="newTableCols" class="form-control" placeholder="列名(如id,name,role)">
-                                </div>
-                                <button class="btn btn-sm btn-success w-100" onclick="createTable()">新建表</button>
-                            </div>
-                            <hr>
-                            <div class="mb-3">
-                                <label>选择操作表</label>
-                                <select id="dbTableSelect" class="form-select" onchange="resetAndLoad()">
-                                    <option value="">-- 请选择 --</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label>插入记录 (逗号分隔)</label>
-                                <input type="text" id="insertData" class="form-control" placeholder="对应列的值">
-                                <button class="btn btn-sm btn-warning w-100 mt-2" onclick="insertRecord()">写入 (互斥锁)</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <span>🔍 数据查询 (共享锁)</span>
-                            <div class="input-group w-75"> <select id="searchColSelect" class="form-select form-select-sm" style="max-width: 150px;">
-                                    <option value="-1">全部列</option>
-                                </select>
-                                <input type="text" id="searchKey" class="form-control form-control-sm" placeholder="关键字...">
-                                <button class="btn btn-sm btn-secondary" onclick="loadTableData(true)">查询</button>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            <div id="tableContainer" style="overflow-x:auto;">
-                                <p class="text-center p-3 text-muted">请选择表进行查看</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="row"><div class="col-md-4"><div class="card"><div class="card-header">📂 表管理</div><div class="card-body">
+                <div class="mb-3"><label>新建数据表</label><div class="input-group mb-2"><input type="text" id="newTableName" class="form-control" placeholder="表名"><input type="text" id="newTableCols" class="form-control" placeholder="列名"></div><button class="btn btn-sm btn-success w-100" onclick="createTable()">新建表</button></div><hr>
+                <div class="mb-3"><label>选择操作表</label><select id="dbTableSelect" class="form-select" onchange="resetAndLoad()"><option value="">-- 请选择 --</option></select></div>
+                <div class="mb-3"><label>插入记录</label><input type="text" id="insertData" class="form-control" placeholder="值"><button class="btn btn-sm btn-warning w-100 mt-2" onclick="insertRecord()">写入 (互斥锁)</button></div>
+            </div></div></div>
+            <div class="col-md-8"><div class="card"><div class="card-header d-flex justify-content-between align-items-center"><span>🔍 数据查询 (共享锁)</span>
+                <div class="input-group w-75"><select id="searchColSelect" class="form-select form-select-sm" style="max-width:150px;"><option value="-1">全部列</option></select><input type="text" id="searchKey" class="form-control form-control-sm" placeholder="关键字..."><button class="btn btn-sm btn-secondary" onclick="loadTableData(true)">查询</button></div>
+            </div><div class="card-body p-0"><div id="tableContainer" style="overflow-x:auto;"></div></div></div></div></div>
         </div>
 
         <div class="tab-pane fade" id="exp3" role="tabpanel">
-            <div class="card">
-                <div class="card-header bg-dark text-white">💻 SQL 交互控制台</div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label class="form-label">请输入 SQL 语句 (支持 SELECT, INSERT, CREATE TABLE, DELETE, UPDATE)</label>
-                        <textarea id="sqlInput" class="form-control" rows="4" style="font-family: monospace; background: #f8f9fa;" placeholder="例如：
-        CREATE TABLE teacher (id, name, course);
-        INSERT INTO teacher VALUES (1, MrWang, Math);
-        SELECT * FROM teacher WHERE name = MrWang;"></textarea>
-                    </div>
-                    <button class="btn btn-primary" onclick="runSQL()">▶ 执行解析 (Run)</button>
-                    <button class="btn btn-outline-secondary" onclick="document.getElementById('sqlInput').value=''">清空</button>
-                </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-header">执行结果</div>
-                <div class="card-body">
-                    <div id="sqlResult" class="p-3 bg-light border rounded" style="min-height: 100px;">
-                        <span class="text-muted">等待执行...</span>
-                    </div>
-                    <div id="sqlTableContainer" class="mt-3"></div>
-                </div>
-            </div>
+            <div class="card"><div class="card-header bg-dark text-white">💻 SQL 交互控制台</div><div class="card-body">
+                <div class="mb-3"><textarea id="sqlInput" class="form-control" rows="4" style="font-family:monospace;background:#f8f9fa;" placeholder="SELECT * FROM goodsInfo;"></textarea></div>
+                <button class="btn btn-primary" onclick="runSQL()">▶ 执行解析</button>
+            </div></div>
+            <div class="card mt-3"><div class="card-header">执行结果</div><div class="card-body"><div id="sqlResult" class="p-3 bg-light border rounded"></div><div id="sqlTableContainer" class="mt-3"></div></div></div>
         </div>
     </div>
 </div>
@@ -159,13 +138,73 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
-        // 加载实验一数据
-        await loadRegions(); loadGoods();
-        // 加载实验二数据
-        loadTableList(); 
+        await loadRegions(); loadGoods(); loadTableList(); loadMonitor();
     });
-    
-    // --- 实验一函数 ---
+
+    // --- Exp 4 Functions ---
+    async function runSysSQL() {
+        const sql = document.getElementById('sysSqlInput').value.trim();
+        if(!sql) return;
+        const res = await fetch(`/api/sql/execute?q=${encodeURIComponent(sql)}`);
+        const d = await res.json();
+        const div = document.getElementById('sysSqlResult');
+        div.innerHTML = d.success ? `<span class="text-success">✅ ${d.msg}</span>` : `<span class="text-danger">❌ ${d.msg}</span>`;
+        if(d.success) {
+            // 如果修改了 goodsInfo，建议提示用户重载
+            if(sql.toLowerCase().includes('goodsinfo')) {
+                div.innerHTML += ` <span class="badge bg-warning text-dark">检测到货物变动，建议点击重载</span>`;
+            }
+        }
+    }
+
+    async function reloadSystem() {
+        const res = await fetch('/api/reload');
+        const d = await res.json();
+        alert(d.msg);
+        loadMonitor(); // 刷新监控
+        loadGoods(); // 刷新Exp1列表
+    }
+
+    async function traceGoods() {
+        const q = document.getElementById('traceInput').value;
+        if(!q) return;
+        const res = await fetch(`/api/status?q=${encodeURIComponent(q)}`);
+        const d = await res.json();
+        const div = document.getElementById('traceResult');
+        
+        if(d.found) {
+            div.innerHTML = `
+                <div class="card border-info">
+                    <div class="card-body">
+                        <h5 class="card-title text-info">📦 ${d.name} (ID: ${d.id})</h5>
+                        <p class="card-text">
+                            <strong>当前状态:</strong> <span class="badge bg-success">${d.status}</span><br>
+                            <strong>物流方案:</strong> 方案 ${d.scheme}<br>
+                            <strong>当前优先级:</strong> ${d.priority}<br>
+                        </p>
+                        <div class="bg-dark text-white p-2 rounded small" style="white-space: pre-wrap;">${d.currentPath}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            div.innerHTML = `<div class="alert alert-warning">${d.msg}</div>`;
+        }
+    }
+
+    async function loadMonitor() {
+        const tbody = document.getElementById('monitorBody');
+        tbody.innerHTML = '';
+        // 简单取所有方案的前几个数据做展示
+        for(let s=1; s<=4; ++s) {
+            const res = await fetch(`/api/goods?scheme=${s}&region=ALL`);
+            const goods = await res.json();
+            goods.forEach(g => {
+                tbody.innerHTML += `<tr><td>${g.id}</td><td>${g.name}</td><td>${s}</td><td>${g.priority}</td></tr>`;
+            });
+        }
+    }
+
+    // --- Exp 1, 2, 3 Functions (Keep existing logic) ---
     async function loadRegions() {
         const res = await fetch('/api/regions');
         const regions = await res.json();
@@ -193,131 +232,73 @@
         const d = await res.json();
         document.getElementById('pathResult').innerText = d.result;
     }
-
-    // --- 实验二函数 ---
-    async function loadTableList() {
-        const res = await fetch('/api/db/list');
-        const tables = await res.json();
-        const sel = document.getElementById('dbTableSelect');
-        sel.innerHTML = '<option value="">-- 请选择 --</option>';
-        tables.forEach(t => sel.add(new Option(t, t)));
-    }
-    async function createTable() {
-        const name = document.getElementById('newTableName').value;
-        const cols = document.getElementById('newTableCols').value;
-        if(!name || !cols) return alert("请输入表名和列名");
-        const res = await fetch(`/api/db/create?name=${name}&cols=${cols}`);
-        const d = await res.json();
-        if(d.success) { alert('创建成功'); loadTableList(); } else alert('创建失败，可能表已存在');
-    }
-    async function insertRecord() {
-        const table = document.getElementById('dbTableSelect').value;
-        const data = document.getElementById('insertData').value;
-        if(!table || !data) return alert("请选择表并输入数据");
-        const res = await fetch(`/api/db/insert?table=${table}&data=${encodeURIComponent(data)}`);
-        const d = await res.json();
-        if(d.success) { alert('写入成功'); loadTableData(); } else alert('写入失败 (可能被锁阻塞)');
-    }
-    async function loadTableData(isQueryClick = false) {    
-        const table = document.getElementById('dbTableSelect').value;
-        const key = document.getElementById('searchKey').value;
-        const colSelect = document.getElementById('searchColSelect');
-        // 获取当前选中的列索引，如果是初次加载则为 -1
-        let colIdx = colSelect.value || -1;
-
-        if(!table) return;
-
-        // 发送请求
-        const res = await fetch(`/api/db/query?table=${table}&key=${encodeURIComponent(key)}&colIdx=${colIdx}`);
+    // Exp 2
+    async function loadTableList() { const res = await fetch('/api/db/list'); const tables = await res.json(); const sel = document.getElementById('dbTableSelect'); sel.innerHTML = '<option value="">-- 请选择 --</option>'; tables.forEach(t => sel.add(new Option(t, t))); }
+    async function createTable() { const n = document.getElementById('newTableName').value; const c = document.getElementById('newTableCols').value; const r = await fetch(`/api/db/create?name=${n}&cols=${c}`); const d = await res.json(); if(d.success) {alert('成功');loadTableList();} }
+    async function insertRecord() { const t = document.getElementById('dbTableSelect').value; const v = document.getElementById('insertData').value; const r = await fetch(`/api/db/insert?table=${t}&data=${v}`); const d = await r.json(); alert(d.success?'成功':'失败'); if(d.success) loadTableData(); }
+    async function resetAndLoad() { document.getElementById('searchKey').value=''; document.getElementById('searchColSelect').innerHTML='<option value="-1">全部列</option>'; loadTableData(false); }
+    async function loadTableData(isClick=false) {
+        const t = document.getElementById('dbTableSelect').value; if(!t) return;
+        const k = document.getElementById('searchKey').value;
+        const col = document.getElementById('searchColSelect').value || -1;
+        const res = await fetch(`/api/db/query?table=${t}&key=${k}&colIdx=${col}`);
         const rows = await res.json();
-        
-        const container = document.getElementById('tableContainer');
-        if(rows.length === 0) { 
-            container.innerHTML = '<p class="text-center p-3">无数据</p>'; 
-            return; 
+        const con = document.getElementById('tableContainer');
+        if(!rows.length) { con.innerHTML='<p class="text-center p-3">无数据</p>'; return; }
+        if(!isClick) {
+            const cs = document.getElementById('searchColSelect'); cs.innerHTML='<option value="-1">全部列</option>';
+            Object.keys(rows[0]).forEach((c,i)=>cs.add(new Option(c,i)));
         }
-
-        // --- [新增逻辑] 动态更新“搜索列”下拉框 ---
-        // 只有当不是点击“查询”按钮触发的（即切换表时），或者是第一次加载时，才更新下拉框
-        // 这样可以避免用户选了“Name”列，一点查询，下拉框又重置回“全部列”了
-        if (!isQueryClick) {
-            const cols = Object.keys(rows[0]); // 获取表头
-            colSelect.innerHTML = '<option value="-1">全部列</option>';
-            cols.forEach((c, index) => {
-                colSelect.add(new Option(c, index)); // value 是索引 0, 1, 2...
-            });
-        }
-        // ---------------------------------------
-
-        // 渲染表格
-        const cols = Object.keys(rows[0]);
-        let html = '<table class="table table-bordered table-sm mb-0"><thead><tr>';
-        cols.forEach(c => html += `<th>${c}</th>`);
-        html += '</tr></thead><tbody>';
-        rows.forEach(r => {
-            html += '<tr>';
-            cols.forEach(c => html += `<td>${r[c]}</td>`);
-            html += '</tr>';
-        });
-        html += '</tbody></table>';
-        container.innerHTML = html;
+        let h = '<table class="table table-bordered table-sm"><thead><tr>'+Object.keys(rows[0]).map(c=>`<th>${c}</th>`).join('')+'</tr></thead><tbody>';
+        rows.forEach(r=>{h+='<tr>'+Object.values(r).map(v=>`<td>${v}</td>`).join('')+'</tr>'});
+        con.innerHTML = h+'</tbody></table>';
     }
-    function resetAndLoad() {
-        // 切换表时，清空搜索框和列选择
-        document.getElementById('searchKey').value = '';
-        document.getElementById('searchColSelect').innerHTML = '<option value="-1">全部列</option>';
-        loadTableData(false);
-    }
-
-    // --- 实验三 JS ---
+    // Exp 3
     async function runSQL() {
-        const sqlRaw = document.getElementById('sqlInput').value.trim();
-        if(!sqlRaw) return;
-
-        // 支持多条语句以分号分隔 (简单实现：循环发送)
-        const sqls = sqlRaw.split(';').filter(s => s.trim().length > 0);
-        
-        const resDiv = document.getElementById('sqlResult');
-        const tableDiv = document.getElementById('sqlTableContainer');
-        resDiv.innerHTML = '';
-        tableDiv.innerHTML = '';
-
-        for (let sql of sqls) {
-            sql = sql.trim();
-            resDiv.innerHTML += `<div><strong>> ${sql}</strong></div>`;
-            
-            try {
-                const res = await fetch(`/api/sql/execute?q=${encodeURIComponent(sql)}`);
-                const d = await res.json();
-                
-                if(d.success) {
-                    resDiv.innerHTML += `<div class="text-success">✅ ${d.msg || 'Success'}</div>`;
-                    if(d.data) {
-                        renderSqlTable(d.data);
-                    }
-                } else {
-                    resDiv.innerHTML += `<div class="text-danger">❌ ${d.msg}</div>`;
-                }
-            } catch(e) {
-                resDiv.innerHTML += `<div class="text-danger">❌ 网络或解析错误</div>`;
+        const raw = document.getElementById('sqlInput').value.trim();
+        if(!raw) return;
+        const sqls = raw.split(';').filter(s=>s.trim().length>0);
+        const rd = document.getElementById('sqlResult'); const td = document.getElementById('sqlTableContainer');
+        rd.innerHTML=''; td.innerHTML='';
+        for(let s of sqls) {
+            rd.innerHTML += `<div>> ${s}</div>`;
+            const r = await fetch(`/api/sql/execute?q=${encodeURIComponent(s)}`);
+            const d = await r.json();
+            rd.innerHTML += d.success ? `<div class="text-success">✅ ${d.msg}</div>` : `<div class="text-danger">❌ ${d.msg}</div>`;
+            if(d.data && d.data.length) {
+                let h = '<table class="table table-bordered table-sm"><thead><tr>'+Object.keys(d.data[0]).map(c=>`<th>${c}</th>`).join('')+'</tr></thead><tbody>';
+                d.data.forEach(r=>{h+='<tr>'+Object.values(r).map(v=>`<td>${v}</td>`).join('')+'</tr>'});
+                td.innerHTML = h+'</tbody></table>';
             }
-            resDiv.innerHTML += `<hr>`;
+            rd.innerHTML += '<hr>';
         }
     }
 
-    function renderSqlTable(rows) {
-        if(!rows || rows.length === 0) return;
-        const cols = Object.keys(rows[0]);
-        let html = '<table class="table table-bordered table-sm table-hover"><thead><tr>';
-        cols.forEach(c => html += `<th>${c}</th>`);
-        html += '</tr></thead><tbody>';
-        rows.forEach(r => {
-            html += '<tr>';
-            cols.forEach(c => html += `<td>${r[c]}</td>`);
-            html += '</tr>';
-        });
-        html += '</tbody></table>';
-        document.getElementById('sqlTableContainer').innerHTML = html;
+    function setSql(sql) {
+        document.getElementById('sysSqlInput').value = sql;
+    }
+
+    async function runSysSQL() {
+        const sql = document.getElementById('sysSqlInput').value.trim();
+        if(!sql) return;
+        const res = await fetch(`/api/sql/execute?q=${encodeURIComponent(sql)}`);
+        const d = await res.json();
+        const div = document.getElementById('sysSqlResult');
+        const tbl = document.getElementById('sysSqlTable');
+        
+        div.innerHTML = d.success ? `<span class="text-success">✅ ${d.msg}</span>` : `<span class="text-danger">❌ ${d.msg}</span>`;
+        
+        // [新增] 如果有返回数据（SELECT），显示表格
+        tbl.innerHTML = '';
+        if(d.data && d.data.length > 0) {
+            let h = '<table class="table table-bordered table-sm table-striped" style="font-size:0.8em"><thead><tr>'+Object.keys(d.data[0]).map(c=>`<th>${c}</th>`).join('')+'</tr></thead><tbody>';
+            d.data.forEach(r=>{h+='<tr>'+Object.values(r).map(v=>`<td>${v}</td>`).join('')+'</tr>'});
+            tbl.innerHTML = h+'</tbody></table>';
+        }
+
+        if(d.success && (sql.toLowerCase().includes('update') || sql.toLowerCase().includes('insert') || sql.toLowerCase().includes('delete'))) {
+            div.innerHTML += ` <span class="badge bg-warning text-dark">数据已变更，请点击重载</span>`;
+        }
     }
 </script>
 </body>

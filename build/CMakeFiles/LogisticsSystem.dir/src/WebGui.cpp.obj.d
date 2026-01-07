@@ -172,6 +172,7 @@ CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/std_mutex.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/unique_lock.h \
  E:/code/LogisticsSystem/include/SQLParser.h \
+ E:/code/LogisticsSystem/include/Goods.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/fstream \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/codecvt.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/x86_64-w64-mingw32/bits/basic_file.h \
@@ -438,4 +439,7 @@ CMakeFiles/LogisticsSystem.dir/src/WebGui.cpp.obj: \
  E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include/ws2ipdef.h \
  E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include/in6addr.h \
  E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include/psdk_inc/_ip_mreq1.h \
- E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include/mstcpip.h
+ E:/Scoop/apps/gcc/13.2.0/x86_64-w64-mingw32/include/mstcpip.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/set \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_set.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_multiset.h

@@ -142,36 +142,20 @@ CMakeFiles/LogisticsSystem.dir/src/Main.cpp.obj: \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/ostream.tcc \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/istream \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/istream.tcc \
+ E:/code/LogisticsSystem/include/GlobalData.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/vector \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_uninitialized.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_vector.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_bvector.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/vector.tcc \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/fstream \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/codecvt.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/x86_64-w64-mingw32/bits/basic_file.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/x86_64-w64-mingw32/bits/c++io.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/fstream.tcc \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/set \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_tree.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/ext/aligned_buffer.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/node_handle.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_set.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_multiset.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/erase_if.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/algorithm \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_algo.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/algorithmfwd.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_heap.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/uniform_int_dist.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_tempbuf.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/pstl/glue_algorithm_defs.h \
- E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/pstl/execution_defs.h \
- E:/code/LogisticsSystem/include/GlobalData.h \
  E:/code/LogisticsSystem/include/Goods.h \
  E:/code/LogisticsSystem/include/WebGui.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/map \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_tree.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/ext/aligned_buffer.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/node_handle.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_map.h \
  E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/stl_multimap.h \
+ E:/Scoop/apps/gcc/13.2.0/include/c++/13.2.0/bits/erase_if.h \
  E:/code/LogisticsSystem/include/Utils.h \
  E:/code/LogisticsSystem/include/Goods.h
