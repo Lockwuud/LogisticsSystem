@@ -1,0 +1,16 @@
+EXP-3：
+
+CREATE TABLE teacher (id,name,course);
+
+INSERT INTO teacher VALUES (1,MrWang,Math);
+INSERT INTO teacher VALUES (2,MsLi,English);
+
+SELECT * FROM teacher WHERE name = MrWang;
+
+UPDATE teacher SET course = CS WHERE id = 1;
+SELECT * FROM teacher;
+
+DELETE FROM teacher WHERE id = 2;
+SELECT * FROM teacher;
+
+EXP-4：

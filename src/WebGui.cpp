@@ -50,12 +50,11 @@ void WebGui::loadDataInternal() {
     fixMatrixHeader("../data/regionDistance.csv");
     fixMatrixHeader("../data/regionAir.csv");
 
-    // ... (以下是原有的读取 goodsInfo.csv 的逻辑，保持不变) ...
+    // 读取 goodsInfo.csv
     for(int i=0; i<5; ++i) logisticsTree[i].goodsList.clear();
     belongingRegionList.clear();
     std::ifstream file("../data/goodsInfo.csv");
-    // ... (继续保留原有的 while 循环读取逻辑) ...
-    // ... (原代码结束) ...
+
     if (!file.is_open()) return;
     std::string line;
     std::set<std::string> regionSet;
@@ -175,6 +174,7 @@ void WebGui::handleClient(int clientSocket) {
 
 // ------ API 处理器 ------
 
+// 获取所有物流地区的列表
 std::string WebGui::handleApiRegions() {
     std::string json = "[";
     for (size_t i = 0; i < belongingRegionList.size(); ++i) {
@@ -185,6 +185,7 @@ std::string WebGui::handleApiRegions() {
     return json;
 }
 
+// 获取符合条件的货物列表
 std::string WebGui::handleApiGoods(const std::map<std::string, std::string>& params) {
     std::string region = "";
     int scheme = 1;
@@ -223,6 +224,7 @@ std::string WebGui::handleApiGoods(const std::map<std::string, std::string>& par
     return json;
 }
 
+// 发货-从系统中删除货物
 std::string WebGui::handleApiShip(const std::map<std::string, std::string>& params) {
     int id = 0; 
     int scheme = 1;
@@ -234,8 +236,20 @@ std::string WebGui::handleApiShip(const std::map<std::string, std::string>& para
         auto& list = logisticsTree[scheme].goodsList;
         for (auto it = list.begin(); it != list.end(); ++it) {
             if (it->id == id) {
-                list.erase(it);
-                found = true;
+                // 修复：同步删除底层 CSV 文件中的记录
+                // "goodsInfo" 是表名（对应 data/goodsInfo.csv）
+                // "id" 是列名
+                // std::to_string(id) 是要删除的值
+                bool diskDeleteSuccess = DBManager::deleteRecords("goodsInfo", "物品ID", std::to_string(id));
+                
+                if (diskDeleteSuccess) {
+                    // 只有磁盘删除成功了，才从内存删除，保证一致性
+                    list.erase(it);
+                    found = true;
+                    std::cout << "[Info] 货物 ID " << id << " 已发货并从磁盘移除。" << std::endl;
+                } else {
+                    std::cerr << "[Error] 货物 ID " << id << " 发货失败：无法写入磁盘（可能被占用）。" << std::endl;
+                }
                 break;
             }
         }
@@ -243,6 +257,7 @@ std::string WebGui::handleApiShip(const std::map<std::string, std::string>& para
     return found ? "{\"success\":true}" : "{\"success\":false}";
 }
 
+// 计算两地之间的最短路径
 std::string WebGui::handleApiPath(const std::map<std::string, std::string>& params) {
     std::string startRegion = "", endRegion = "";
     int scheme = 1;
@@ -274,6 +289,7 @@ std::string WebGui::handleApiPath(const std::map<std::string, std::string>& para
 
 // --- 实验二新增实现 ---
 
+// 列出 data 目录下所有的表
 std::string WebGui::handleApiDbList() {
     auto tables = DBManager::getAllTables();
     std::string json = "[";
@@ -285,6 +301,7 @@ std::string WebGui::handleApiDbList() {
     return json;
 }
 
+// 创建一个新的数据表
 std::string WebGui::handleApiDbCreate(const std::map<std::string, std::string>& params) {
     if(params.count("name") && params.count("cols")) {
         std::string name = params.at("name");
@@ -296,6 +313,7 @@ std::string WebGui::handleApiDbCreate(const std::map<std::string, std::string>& 
     return "{\"success\":false}";
 }
 
+// 向表中插入一条记录
 std::string WebGui::handleApiDbInsert(const std::map<std::string, std::string>& params) {
     if(params.count("table") && params.count("data")) {
         std::string table = params.at("table");
@@ -306,11 +324,12 @@ std::string WebGui::handleApiDbInsert(const std::map<std::string, std::string>& 
     return "{\"success\":false}";
 }
 
+// 查询表中的数据
 std::string WebGui::handleApiDbQuery(const std::map<std::string, std::string>& params) {
     std::string table = params.count("table") ? params.at("table") : "";
     std::string key = params.count("key") ? params.at("key") : "";
     
-    // [新增] 解析列索引，默认为 -1 (表示全文搜索)
+    // 解析列索引，默认为 -1 (表示全文搜索)
     int colIdx = -1;
     if (params.count("colIdx")) {
         try {
@@ -323,11 +342,13 @@ std::string WebGui::handleApiDbQuery(const std::map<std::string, std::string>& p
     return DBManager::query(table, key, colIdx);
 }
 
+// 系统热重载
 std::string WebGui::handleApiReload() {
     loadDataInternal();
     return "{\"success\":true, \"msg\":\"系统数据已从文件重新加载\"}";
 }
 
+// 物流状态质询
 std::string WebGui::handleApiStatus(const std::map<std::string, std::string>& params) {
     std::string keyword = params.count("q") ? params.at("q") : "";
     if (keyword.empty()) return "{\"found\":false}";
@@ -379,6 +400,7 @@ std::string WebGui::handleApiStatus(const std::map<std::string, std::string>& pa
     return json;
 }
 
+// 解析 URL 查询字符串
 std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) {
     std::map<std::string, std::string> params;
     std::vector<std::string> pairs = Utils::split(query, '&');
@@ -406,6 +428,7 @@ std::map<std::string, std::string> WebGui::parseQuery(const std::string& query) 
     return params;
 }
 
+// 根据方案 ID 获取对应的邻接矩阵
 std::vector<std::vector<int>> WebGui::getGraphForScheme(int schemeId) {
     int size = belongingRegionList.size();
     if (schemeId == 1) return Utils::readMatrix("../data/regionPrice.csv", size, belongingRegionList);
@@ -425,6 +448,7 @@ std::vector<std::vector<int>> WebGui::getGraphForScheme(int schemeId) {
     return combined;
 }
 
+// 发送 HTTP 响应
 void WebGui::sendResponse(int socket, const std::string& content, const std::string& contentType) {
     std::string response = "HTTP/1.1 200 OK\r\n";
     response += "Content-Type: " + contentType + "\r\n";

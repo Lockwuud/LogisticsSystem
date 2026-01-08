@@ -6,10 +6,37 @@
 #include <filesystem>
 #include <sstream>
 #include <algorithm>
+#include <vector>
 
 namespace fs = std::filesystem;
 
 const std::string DATA_DIR = "../data/";
+
+// +转小写，用于不区分大小写的比较
+std::string dbToLower(const std::string& str) {
+    std::string res = str;
+    std::transform(res.begin(), res.end(), res.begin(), ::tolower);
+    return res;
+}
+
+// 去除首尾空格 (防止 " A " 匹配不到 "A")
+std::string trim(const std::string& str) {
+    size_t first = str.find_first_not_of(" \t\r\n");
+    if (std::string::npos == first) return "";
+    size_t last = str.find_last_not_of(" \t\r\n");
+    return str.substr(first, (last - first + 1));
+}
+
+// 去除 BOM 头 (防止文件开头的隐藏字符导致第一列列名无法识别)
+std::string removeBOM(std::string line) {
+    if (line.size() >= 3 && 
+        (unsigned char)line[0] == 0xEF && 
+        (unsigned char)line[1] == 0xBB && 
+        (unsigned char)line[2] == 0xBF) {
+        return line.substr(3);
+    }
+    return line;
+}
 
 std::string DBManager::getFilePath(const std::string& tableName) {
     std::string safeName = tableName;
@@ -37,78 +64,54 @@ bool DBManager::createTable(const std::string& tableName, const std::vector<std:
     return true;
 }
 
+// 辅助函数：重写文件
+bool rewriteFile(HANDLE hFile, const std::vector<std::string>& lines) {
+    SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
+    SetEndOfFile(hFile); // 截断文件
+
+    for (size_t i = 0; i < lines.size(); ++i) {
+        std::string line = lines[i] + "\n";
+        DWORD bytesWritten;
+        if (!WriteFile(hFile, line.c_str(), line.size(), &bytesWritten, NULL)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 bool DBManager::insertRecord(const std::string& tableName, const std::string& recordLine) {
     std::string path = getFilePath(tableName);
     
-    // [修复] 使用 GENERIC_WRITE 替代 FILE_APPEND_DATA，否则 LockFileEx 会因权限不足失败
-    HANDLE hFile = CreateFileA(
-        path.c_str(),
-        GENERIC_READ | GENERIC_WRITE, 
-        FILE_SHARE_READ, 
-        NULL,
-        OPEN_EXISTING,
-        FILE_ATTRIBUTE_NORMAL,
-        NULL
-    );
-
-    if (hFile == INVALID_HANDLE_VALUE) {
-        std::cerr << "[Error] 打开文件失败: " << path << " Error: " << GetLastError() << std::endl;
-        return false;
-    }
+    HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE) return false;
 
     OVERLAPPED overlapped = {0};
-    
-    // 申请互斥锁
     if (!LockFileEx(hFile, LOCKFILE_EXCLUSIVE_LOCK, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
-        std::cerr << "[Error] 加锁失败 Error: " << GetLastError() << std::endl;
-        CloseHandle(hFile);
-        return false;
+        CloseHandle(hFile); return false;
     }
 
-    // [修复] 手动移动指针到文件末尾以实现追加
     SetFilePointer(hFile, 0, NULL, FILE_END);
-
     DWORD bytesWritten;
     std::string line = recordLine + "\n";
     BOOL writeSuccess = WriteFile(hFile, line.c_str(), line.size(), &bytesWritten, NULL);
 
-    // 释放锁
     UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
     CloseHandle(hFile);
-
-    if (!writeSuccess) {
-        std::cerr << "[Error] 写入数据失败 Error: " << GetLastError() << std::endl;
-        return false;
-    }
-
-    return true;
+    return writeSuccess;
 }
 
 std::string DBManager::query(const std::string& tableName, const std::string& key, int columnIndex) {
     std::string path = getFilePath(tableName);
     std::string resultJson = "[";
 
-    HANDLE hFile = CreateFileA(
-        path.c_str(),
-        GENERIC_READ | GENERIC_WRITE, 
-        FILE_SHARE_READ | FILE_SHARE_WRITE, 
-        NULL,
-        OPEN_EXISTING,
-        FILE_ATTRIBUTE_NORMAL,
-        NULL
-    );
-
+    HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (hFile == INVALID_HANDLE_VALUE) return "[]";
 
     OVERLAPPED overlapped = {0};
-
-    // 申请共享锁
     if (!LockFileEx(hFile, 0, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
-        CloseHandle(hFile);
-        return "[]";
+        CloseHandle(hFile); return "[]";
     }
 
-    // 读取内容
     DWORD fileSize = GetFileSize(hFile, NULL);
     std::string fileContent;
     if (fileSize > 0) {
@@ -123,31 +126,27 @@ std::string DBManager::query(const std::string& tableName, const std::string& ke
 
     std::stringstream ss(fileContent);
     std::string line;
-    
-    // 读取表头
     std::getline(ss, line); 
     if (!line.empty() && line.back() == '\r') line.pop_back();
+    line = removeBOM(line);
     std::vector<std::string> headers = Utils::split(line, ',');
     
     bool first = true;
+    std::string keyLower = dbToLower(trim(key));
     while (std::getline(ss, line)) {
         if (line.empty()) continue;
         if (line.back() == '\r') line.pop_back();
 
         bool match = false;
-        // 必须先分割，因为如果是指定列查询，需要访问 cols[index]
         std::vector<std::string> cols = Utils::split(line, ',');
 
         if (key.empty()) {
             match = true;
         } else {
-            // [核心修改] 判断是指定列查询还是全文查询
             if (columnIndex >= 0 && columnIndex < (int)cols.size()) {
-                // 指定列查询：只检查对应列是否包含关键字
-                if (cols[columnIndex].find(key) != std::string::npos) match = true;
+                if (dbToLower(cols[columnIndex]).find(keyLower) != std::string::npos) match = true;
             } else {
-                // 全文查询：检查整行
-                if (line.find(key) != std::string::npos) match = true;
+                if (dbToLower(line).find(keyLower) != std::string::npos) match = true;
             }
         }
 
@@ -166,86 +165,16 @@ std::string DBManager::query(const std::string& tableName, const std::string& ke
     return resultJson;
 }
 
-std::vector<std::string> DBManager::getAllTables() {
-    std::vector<std::string> tables;
-    if (!fs::exists(DATA_DIR)) return tables;
-
-    for (const auto& entry : fs::directory_iterator(DATA_DIR)) {
-        if (entry.path().extension() == ".csv") {
-            tables.push_back(entry.path().stem().string());
-        }
-    }
-    return tables;
-}
-
-// 在文件末尾添加:
-int DBManager::getColumnIndex(const std::string& tableName, const std::string& colName) {
-    if (colName == "*") return -1;
-    
-    std::string path = getFilePath(tableName);
-    HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-    if (hFile == INVALID_HANDLE_VALUE) return -2; // 表不存在
-
-    // 读锁
-    OVERLAPPED overlapped = {0};
-    if (!LockFileEx(hFile, 0, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
-        CloseHandle(hFile); return -2;
-    }
-
-    // 只读第一行(表头)
-    char buffer[1024];
-    DWORD bytesRead;
-    ReadFile(hFile, buffer, 1024, &bytesRead, NULL);
-    
-    // 解锁
-    UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
-    CloseHandle(hFile);
-
-    std::string content(buffer, bytesRead);
-    std::stringstream ss(content);
-    std::string headerLine;
-    std::getline(ss, headerLine);
-    if (!headerLine.empty() && headerLine.back() == '\r') headerLine.pop_back();
-
-    auto headers = Utils::split(headerLine, ',');
-    for (size_t i = 0; i < headers.size(); ++i) {
-        if (headers[i] == colName) return i;
-    }
-    return -2; // 没找到列
-}
-
-// [新增通用辅助函数] 重写文件内容（必须在已加锁的情况下调用）
-bool rewriteFile(HANDLE hFile, const std::vector<std::string>& lines) {
-    // 1. 移动文件指针到开头
-    SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
-    
-    // 2. 截断文件 (防止新内容比旧内容短时残留数据)
-    SetEndOfFile(hFile);
-
-    // 3. 写入新内容
-    for (size_t i = 0; i < lines.size(); ++i) {
-        std::string line = lines[i] + "\n";
-        DWORD bytesWritten;
-        if (!WriteFile(hFile, line.c_str(), line.size(), &bytesWritten, NULL)) {
-            return false;
-        }
-    }
-    return true;
-}
-
 bool DBManager::deleteRecords(const std::string& tableName, const std::string& whereCol, const std::string& whereVal) {
     std::string path = getFilePath(tableName);
-    // 必须用 GENERIC_READ | GENERIC_WRITE 才能进行读写和加锁
     HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (hFile == INVALID_HANDLE_VALUE) return false;
 
-    // 1. 申请独占锁 (互斥)
     OVERLAPPED overlapped = {0};
     if (!LockFileEx(hFile, LOCKFILE_EXCLUSIVE_LOCK, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
         CloseHandle(hFile); return false;
     }
 
-    // 2. 读取所有数据
     DWORD fileSize = GetFileSize(hFile, NULL);
     std::string fileContent;
     if (fileSize > 0) {
@@ -255,21 +184,26 @@ bool DBManager::deleteRecords(const std::string& tableName, const std::string& w
         fileContent.assign(buffer.data(), bytesRead);
     }
 
-    // 3. 内存处理：保留不匹配的行 (即删除匹配的行)
     std::vector<std::string> newLines;
     std::stringstream ss(fileContent);
     std::string line;
     
-    // 3.1 处理表头
     if (std::getline(ss, line)) {
         if (!line.empty() && line.back() == '\r') line.pop_back();
-        newLines.push_back(line); // 表头永远保留
+
+        line = removeBOM(line);
+        newLines.push_back(line); 
         std::vector<std::string> headers = Utils::split(line, ',');
         
         int targetIdx = -1;
-        for(size_t i=0; i<headers.size(); ++i) if(headers[i] == whereCol) targetIdx = i;
+        // [修复] 使用小写比较表头
+        std::string whereColLower = dbToLower(whereCol);
+        for(size_t i=0; i<headers.size(); ++i) {
+            if(dbToLower(trim(headers[i])) == whereColLower) targetIdx = i;
+        }
 
-        // 3.2 遍历数据行
+        std::string whereValLower = dbToLower(trim(whereVal));
+
         while (std::getline(ss, line)) {
             if (line.empty()) continue;
             if (line.back() == '\r') line.pop_back();
@@ -277,24 +211,17 @@ bool DBManager::deleteRecords(const std::string& tableName, const std::string& w
             bool shouldDelete = false;
             std::vector<std::string> cols = Utils::split(line, ',');
             
-            // 检查条件
-            if (targetIdx != -1 && targetIdx < cols.size()) {
-                if (cols[targetIdx] == whereVal) shouldDelete = true;
+            if (targetIdx != -1 && targetIdx < (int)cols.size()) {
+                if (dbToLower(trim(cols[targetIdx])) == whereValLower) shouldDelete = true;
             } else if (whereCol.empty()) {
-                // 如果没有 WHERE 条件，全删？(通常 DELETE FROM table 清空表)
                 shouldDelete = true; 
             }
 
-            if (!shouldDelete) {
-                newLines.push_back(line);
-            }
+            if (!shouldDelete) newLines.push_back(line);
         }
     }
 
-    // 4. 重写文件
     bool success = rewriteFile(hFile, newLines);
-
-    // 5. 解锁
     UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
     CloseHandle(hFile);
     return success;
@@ -326,15 +253,25 @@ bool DBManager::updateRecords(const std::string& tableName, const std::string& w
 
     if (std::getline(ss, line)) {
         if (!line.empty() && line.back() == '\r') line.pop_back();
+
+        line = removeBOM(line);
         newLines.push_back(line);
         std::vector<std::string> headers = Utils::split(line, ',');
         
         int whereIdx = -1;
         int setIdx = -1;
+        
+        // [修复] 使用小写比较表头
+        std::string whereColLower = dbToLower(whereCol);
+        std::string targetColLower = dbToLower(targetCol);
+
         for(size_t i=0; i<headers.size(); ++i) {
-            if(headers[i] == whereCol) whereIdx = i;
-            if(headers[i] == targetCol) setIdx = i;
+            std::string h = dbToLower(trim(headers[i]));
+            if(h == whereColLower) whereIdx = i;
+            if(h == targetColLower) setIdx = i;
         }
+
+        std::string whereValLower = dbToLower(trim(whereVal));
 
         while (std::getline(ss, line)) {
             if (line.empty()) continue;
@@ -343,15 +280,15 @@ bool DBManager::updateRecords(const std::string& tableName, const std::string& w
             std::vector<std::string> cols = Utils::split(line, ',');
             bool match = false;
 
-            if (whereIdx != -1 && whereIdx < cols.size()) {
-                if (cols[whereIdx] == whereVal) match = true;
+            if (whereIdx != -1 && whereIdx < (int)cols.size()) {
+                if (dbToLower(trim(cols[whereIdx])) == whereValLower) match = true;
             } else if (whereCol.empty()) {
-                match = true; // 无条件全更新
+                match = true; 
             }
 
-            if (match && setIdx != -1 && setIdx < cols.size()) {
-                cols[setIdx] = newVal; // 更新值
-                // 重组 CSV 行
+            // 只有当找到了 setIdx (列存在) 且行匹配时才更新
+            if (match && setIdx != -1 && setIdx < (int)cols.size()) {
+                cols[setIdx] = newVal; 
                 std::string newLine = "";
                 for(size_t i=0; i<cols.size(); ++i) {
                     newLine += cols[i];
@@ -368,4 +305,51 @@ bool DBManager::updateRecords(const std::string& tableName, const std::string& w
     UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
     CloseHandle(hFile);
     return success;
+}
+
+std::vector<std::string> DBManager::getAllTables() {
+    std::vector<std::string> tables;
+    if (!fs::exists(DATA_DIR)) return tables;
+    for (const auto& entry : fs::directory_iterator(DATA_DIR)) {
+        if (entry.path().extension() == ".csv") {
+            tables.push_back(entry.path().stem().string());
+        }
+    }
+    return tables;
+}
+
+int DBManager::getColumnIndex(const std::string& tableName, const std::string& colName) {
+    if (colName == "*") return -1;
+    
+    std::string path = getFilePath(tableName);
+    HANDLE hFile = CreateFileA(path.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (hFile == INVALID_HANDLE_VALUE) return -2; 
+
+    OVERLAPPED overlapped = {0};
+    if (!LockFileEx(hFile, 0, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped)) {
+        CloseHandle(hFile); return -2;
+    }
+
+    char buffer[1024];
+    DWORD bytesRead;
+    ReadFile(hFile, buffer, 1024, &bytesRead, NULL);
+    
+    UnlockFileEx(hFile, 0, 0xFFFFFFFF, 0xFFFFFFFF, &overlapped);
+    CloseHandle(hFile);
+
+    std::string content(buffer, bytesRead);
+    std::stringstream ss(content);
+    std::string headerLine;
+    std::getline(ss, headerLine);
+    if (!headerLine.empty() && headerLine.back() == '\r') headerLine.pop_back();
+
+    headerLine = removeBOM(headerLine);
+    auto headers = Utils::split(headerLine, ',');
+
+    // [修复] 使用小写比较
+    std::string colNameLower = dbToLower(colName);
+    for (size_t i = 0; i < headers.size(); ++i) {
+        if (dbToLower(trim(headers[i])) == colNameLower) return i;
+    }
+    return -2; 
 }
